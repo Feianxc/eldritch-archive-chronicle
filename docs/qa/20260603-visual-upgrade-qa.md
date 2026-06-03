@@ -2,7 +2,7 @@
 
 ## 结论
 
-本轮视觉升级已通过本地静态检查、内置浏览器 DOM/交互验证、Playwright + Chrome 截图验证，以及 Vercel 子域名公开访问验证。
+本轮视觉升级已通过本地静态检查、内置浏览器 DOM/交互验证、Playwright + Chrome 截图验证、Vercel 子域名公开访问验证，以及 GitHub Pages 公开访问验证。
 
 ## 本地静态检查
 
@@ -56,6 +56,24 @@ Browser 截图接口在本轮本地页面上出现一次 `Page.captureScreenshot
 - `E:/codex_media/cthulhu_chronicle_upgrade/local-library.png`
 - `E:/codex_media/cthulhu_chronicle_upgrade/vercel-desktop-1680.png`
 - `E:/codex_media/cthulhu_chronicle_upgrade/vercel-mobile-390.png`
+- `E:/codex_media/cthulhu_chronicle_upgrade/github-pages-desktop-1680.png`
+- `E:/codex_media/cthulhu_chronicle_upgrade/github-pages-mobile-390.png`
+
+## 公开访问验证
+
+Vercel：
+
+```text
+https://cthulhu-chronicle-demo.vercel.app                 HTTP 200
+https://cthulhu-chronicle-demo.vercel.app/data/works.json HTTP 200, works=35, sources=3
+```
+
+GitHub Pages：
+
+```text
+https://feianxc.github.io/eldritch-archive-chronicle/                 HTTP 200
+https://feianxc.github.io/eldritch-archive-chronicle/data/works.json HTTP 200, works=35, sources=3
+```
 
 ## 视觉对齐检查
 
