@@ -1,6 +1,9 @@
 {
-  "generatedAt": "2026-06-03T07:49:00.570Z",
+  "generatedAt": "2026-06-03T08:32:13.138Z",
   "filesChecked": 13,
-  "failures": [],
+  "failures": [
+    "Broken local reference: styles.css?v=20260603c",
+    "Broken local reference: script.js?v=20260603c"
+  ],
   "warnings": []
 }
