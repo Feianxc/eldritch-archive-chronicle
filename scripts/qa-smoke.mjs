@@ -72,3 +72,4 @@ if (failures.length) {
   process.exit(1);
 }
 console.log(JSON.stringify(report, null, 2));
+
