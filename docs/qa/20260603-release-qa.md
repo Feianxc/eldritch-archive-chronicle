@@ -49,3 +49,14 @@ Compared against `concept-reference.png` with `view_image` in the same QA pass. 
 
 - Downstream library, chronology, mythos, research, and about sections are designed extensions, not present in the original single-screen concept.
 - Mobile stacks the composition for readability rather than forcing the desktop split-screen into a narrow viewport.
+
+## Mobile fix pass
+
+After public mobile screenshot review, the narrow header action and parchment copy scale were tightened for `390px` viewports.
+
+Evidence from Browser local mobile pass:
+
+- `.enter` right edge: `361px` inside a `390px` viewport
+- `.scroll-copy` right edge: `336px` inside a `390px` viewport
+- Horizontal overflow: `false`
+- Screenshot: `E:/codex_media/cthulhu_chronicle_release/mobile-fix-local.png`

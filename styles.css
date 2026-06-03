@@ -245,10 +245,13 @@ time em { display: block; margin-top: 8px; color: var(--paper); font: 19px/1 var
   :root { --page-gutter: 14px; }
   .archive-stage { padding: 18px var(--page-gutter) 30px; background-position: 40% top; }
   .archive-nav { display: flex; justify-content: space-between; }
+  .identity { min-width: 0; }
+  .identity strong { white-space: nowrap; }
+  .nav-tools { flex-shrink: 0; gap: 0; }
   .identity strong { font-size: 16px; letter-spacing: .08em; }
   .identity em, .nav-tools .search { display: none; }
   .astro-mark { width: 42px; height: 42px; }
-  .enter { padding: 10px 12px; min-height: 38px; font-size: 13px; letter-spacing: .04em; }
+  .enter { padding: 9px 10px; min-height: 38px; font-size: 12px; letter-spacing: 0; gap: 8px; white-space: nowrap; }
   .hero-copy { margin-top: 72px; }
   .eyebrow { font-size: 11px; letter-spacing: .24em; }
   h1 { font-size: clamp(52px, 18vw, 74px); }
@@ -257,10 +260,11 @@ time em { display: block; margin-top: 8px; color: var(--paper); font: 19px/1 var
   .featured-scroll { height: 620px; filter: drop-shadow(0 26px 54px oklch(0% 0 0 / .5)); }
   .scroll-asset { object-fit: cover; object-position: 42% center; }
   .featured-scroll .ribbon { left: 7%; top: 8%; writing-mode: horizontal-tb; padding: 8px 12px; }
-  .featured-scroll .scroll-copy { left: 51%; right: 8%; top: 30%; bottom: 8%; }
+  .featured-scroll .scroll-copy { left: 50%; right: 7%; top: 32%; bottom: 8%; }
   .scroll-state { text-align: left; font-size: 12px; letter-spacing: .12em; }
-  .scroll-copy h2 { font-size: clamp(32px, 9vw, 42px); }
-  .scroll-copy p { font-size: 13px; line-height: 1.55; }
+  .scroll-copy h2 { font-size: clamp(26px, 7.4vw, 31px); line-height: 1.06; }
+  .scroll-copy p { font-size: 12px; line-height: 1.5; margin-bottom: 9px; }
+  .scroll-copy a { gap: 10px; font-size: 14px; }
   .timeline-archive { padding-left: 36px; }
   .timeline-list li { grid-template-columns: 78px minmax(0, 1fr); gap: 16px; padding: 22px 0; }
   .entry-seal { display: none; }
@@ -287,6 +291,10 @@ time em { display: block; margin-top: 8px; color: var(--paper); font: 19px/1 var
 
 @media (max-width: 420px) {
   .archive-stage { min-height: 100svh; }
-  .featured-scroll .scroll-copy { left: 48%; right: 5%; top: 30%; }
+  .featured-scroll .scroll-copy { left: 50%; right: 7%; top: 33%; }
+  .enter { width: 112px; justify-content: center; }
+  .enter span { display: none; }
   .scroll-copy .latin { font-size: 12px; }
 }
+
+

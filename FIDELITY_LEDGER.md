@@ -64,3 +64,7 @@
 
 ### Fidelity conclusion
 The first viewport remains faithful to the accepted concept. The additional sections are intentional extensions using the same dark archive palette, brass rules, serif type hierarchy, generated seals, occult geometry, and document-list rhythm.
+
+### 2026-06-03 mobile narrow fix
+- Tightened the mobile header action width and parchment copy scale after public `390px` screenshot review.
+- Browser local mobile proof: `.enter` right edge `361px`, `.scroll-copy` right edge `336px`, horizontal overflow `false`.
