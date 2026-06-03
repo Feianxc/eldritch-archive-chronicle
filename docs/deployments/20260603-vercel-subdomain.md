@@ -23,12 +23,12 @@ vercel deploy --prod --yes
 - Vercel project：`cthulhu-chronicle-demo`
 - Production alias：`https://cthulhu-chronicle-demo.vercel.app`
 
-## 部署输出要点
+## 部署结果
+
+Vercel CLI 完成生产部署后，将生产别名绑定到：
 
 ```text
-Linked to feians-projects/cthulhu-chronicle-demo
-Production: https://cthulhu-chronicle-demo-72sew1i6x-feians-projects.vercel.app
-Aliased: https://cthulhu-chronicle-demo.vercel.app
+https://cthulhu-chronicle-demo.vercel.app
 ```
 
 ## 公开访问验证
