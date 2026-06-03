@@ -40,7 +40,7 @@ for (const match of index.matchAll(/href="#([^"]+)"/g)) {
 }
 
 for (const match of index.matchAll(/(?:src|href)="\.\/([^"]+)"/g)) {
-  const target = match[1];
+  const target = match[1].split(/[?#]/)[0];
   if (target.startsWith('#')) continue;
   if (!relExists(target)) fail(`Broken local reference: ${target}`);
 }
