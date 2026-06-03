@@ -1,5 +1,8 @@
 # 不可名状作品编年史
 
+- Live Demo: https://feianxc.github.io/eldritch-archive-chronicle/
+- Repository: https://github.com/Feianxc/eldritch-archive-chronicle
+
 一个克苏鲁与洛夫克拉夫特式怪奇文学作品编年史网页。页面以暗色档案馆为核心视觉，包含首页封面、文献库、年代索引、神话体系、调查札记和本地检索交互。
 
 ## 功能
@@ -70,3 +73,4 @@ GitHub Pages 推荐设置：
 ## License
 
 MIT
+
