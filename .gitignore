@@ -16,3 +16,7 @@ dist/
 build/
 .env
 .env.*
+
+# deployment local state
+.vercel/
+.vercel

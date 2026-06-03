@@ -1,70 +1,37 @@
-# Fidelity Ledger
+# FIDELITY LEDGER
 
-## 2026-06-02 asset-based refinement
+## 2026-06-03 visual upgrade
 
-### Source of truth
-- Concept reference: `concept-reference.png`
-- Rendered desktop screenshot: `qa-assets-desktop-1680.png` at `1680x960`
-- Rendered mobile screenshot: `qa-assets-mobile-390.png` at `390x1100` viewport
+### Accepted visual references
 
-### Material fixes made
-1. Replaced the previous pure-CSS feel with project-local generated bitmap assets:
-   - `assets/eldritch-bg.png`
-   - `assets/parchment.png`
-   - `assets/seal-book.png`
-   - `assets/seal-mountain.png`
-   - `assets/seal-wave.png`
-   - `assets/seal-star.png`
-2. Fixed the parchment internal layout bug: `.featured-scroll > :not(.scroll-asset)` had higher specificity than `.scroll-copy` / `.ribbon`, causing the manuscript text to be offset like normal flow instead of pinned inside the parchment. The selectors now explicitly target `.featured-scroll .ribbon` and `.featured-scroll .scroll-copy`.
-3. Moved and scaled the hero block closer to the concept: smaller display title, tighter lead text, and earlier vertical placement.
-4. Reduced parchment width and restored a clear gap between the CTA and parchment.
-5. Shifted the right timeline rail toward the concept centerline and tightened timeline columns/seals.
+- `E:/codex_media/cthulhu_chronicle_upgrade/concept-hero-motion.png`
+- `E:/codex_media/cthulhu_chronicle_upgrade/concept-library.png`
+- `E:/codex_media/cthulhu_chronicle_upgrade/concept-atlas.png`
 
-### Browser evidence
-- Desktop layout metrics after fix:
-  - CTA bottom: `556px`
-  - Parchment top: `580px`
-  - CTA-to-parchment gap: `25px`
-  - Parchment right edge: `958px`
-  - Timeline rail container x: `993px`
-  - Horizontal overflow: `false`
-- Mobile layout metrics after fix:
-  - Viewport: `390x1100`
-  - Document height: `2449px`
-  - Horizontal overflow: `false`
-  - Parchment top: `565px`
-  - Timeline top: `1238px`
-- Asset loading check: all five `<img>` assets reported `complete: true` with natural dimensions.
+### Render evidence
 
-### Comparison points checked
-1. **Signature mood**: concept's dark teal abyss, occult charts, tentacles, and central Cthulhu silhouette are now carried by the generated background asset instead of rough CSS overlays.
-2. **Hero hierarchy**: title now sits higher and no longer forces the CTA into the parchment layer.
-3. **Parchment treatment**: the manuscript is a real generated torn-paper asset with aged texture and illustration, not a flat CSS panel.
-4. **Parchment text placement**: the document title, metadata, body, and link are now anchored inside the right half of the manuscript as in the concept.
-5. **Timeline anatomy**: the vertical brass rail is closer to the concept centerline; year/title/seal rhythm is preserved.
-6. **Generated seals**: right-side archive marks use real image assets rather than CSS circles.
-7. **Responsive behavior**: mobile has no horizontal overflow and keeps the hero → CTA → manuscript → timeline story order.
+- Local desktop: `E:/codex_media/cthulhu_chronicle_upgrade/local-desktop-1680.png`
+- Local mobile: `E:/codex_media/cthulhu_chronicle_upgrade/local-mobile-390.png`
+- Local library: `E:/codex_media/cthulhu_chronicle_upgrade/local-library.png`
+- Vercel desktop: `E:/codex_media/cthulhu_chronicle_upgrade/vercel-desktop-1680.png`
+- Vercel mobile: `E:/codex_media/cthulhu_chronicle_upgrade/vercel-mobile-390.png`
 
-### Remaining intentional deviations
-- Chinese text is code-native for readability/accessibility; only decorative manuscript, background, and seals are raster assets.
-- Mobile uses a stacked editorial layout rather than trying to squeeze the full desktop split-screen composition into a phone viewport.
+### Comparison points
 
-## 2026-06-03 complete-site release pass
+| Area | Reference evidence | Render evidence | Decision |
+|---|---|---|---|
+| Hero layout | Left title, cinematic sigil/book scene, right chronology | Render keeps left title, generated hero background and right timeline | Match |
+| Motion language | Rotation trails, glowing rail, floating paper | Implemented rotating mark, rail scan, node pulse, fog, particle canvas, parchment float | Match |
+| Library | Filter/search desk, folios, source panel | Implemented era rail, generated thumbnails, data cards and source panel | Match with code-native text |
+| Atlas | Large celestial map with nodes and time relationships | Implemented atlas image background and clickable code-native nodes | Match with accessible controls |
+| Data completeness | Reference implies expanded archive | `data/works.json` has 35 records and 3 source groups | Exceeds reference |
+| Mobile | Need readable stacked continuation | 390px screenshot shows readable hero and stacked content | Match |
 
-### Added surface
-- Expanded the single-screen concept into a complete static website: library, chronology index, mythos atlas, research/search desk, and open-source project note.
-- Added `script.js` for local search, filter chips, random archive selection, and active navigation.
-- Added open-source packaging: `README.md`, `LICENSE`, `package.json`, `.gitignore`, `.nojekyll`, `scripts/qa-smoke.mjs`, and QA/deployment docs.
+### Intentional deviations
 
-### Verification evidence
-- `npm run check`: pass, failures `0`, warnings `0`.
-- Browser desktop: `1680x960`, horizontal overflow `false`, console errors/warnings `0`.
-- Browser mobile: `390x1100`, horizontal overflow `false`, scroll top `0` after forced top capture.
-- Interaction: filter `深海` plus query `印斯茅斯` produced exactly one visible case, `印斯茅斯日记残页`.
+- Concept images contain decorative UI text inside raster screenshots. Final implementation keeps functional text code-native for accessibility and maintainability.
+-自有 DNS 子域名 was not configured because no domain or DNS authority was discoverable. Vercel production subdomain was created instead.
 
-### Fidelity conclusion
-The first viewport remains faithful to the accepted concept. The additional sections are intentional extensions using the same dark archive palette, brass rules, serif type hierarchy, generated seals, occult geometry, and document-list rhythm.
+### Current status
 
-### 2026-06-03 mobile narrow fix
-- Tightened the mobile header action width and parchment copy scale after public `390px` screenshot review.
-- Browser local mobile proof: `.enter` right edge `361px`, `.scroll-copy` right edge `336px`, horizontal overflow `false`.
+No material mismatch remains for the upgraded scope. The website now uses real generated assets, expanded data, purposeful motion and public deployment evidence.

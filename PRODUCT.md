@@ -13,19 +13,28 @@ Readers, collectors, students of weird fiction, and design-minded literature fan
 brand/editorial
 
 ## Pages / sections
-- First-viewport archive cover
+- Cinematic first-viewport archive cover
 - Featured manuscript card
-- Works library
-- Chronology index
-- Mythos atlas
+- Data-driven works library
+- Chronology deep timeline
+- Mythos atlas with node interactions
 - Research/search desk
+- Literature source and rights boundary note
 - Open-source project note
+
+## Current product scope
+- Static HTML/CSS/JS site
+- `data/works.json` with 35 work records
+- Local search, era filters, topic filters, random archive selection and atlas node linking
+- Generated hero, atlas, reading desk and work-thumbnail assets
+- GitHub Pages deployment
+- Vercel production subdomain deployment
 
 ## Design constraints
 - Dark abyssal editorial style
 - Clear readable Chinese interface
 - Timeline as the main information architecture
-- Real image assets for texture, background, manuscript, and seals
+- Real image assets for texture, background, manuscript, atlas and thumbnails
 - No gore and no cheap horror props
 - Responsive desktop and mobile
-- Static, deployable to GitHub Pages
+- Static, deployable to GitHub Pages and Vercel

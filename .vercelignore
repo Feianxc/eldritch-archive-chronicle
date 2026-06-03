@@ -1,0 +1,8 @@
+.cdp-profile*/
+.headless-*/
+qa-*.png
+qa-*.json
+node_modules/
+.git/
+.vscode/
+.idea/

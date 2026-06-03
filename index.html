@@ -4,16 +4,19 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>不可名状作品编年史 | Eldritch Archive</title>
-  <meta name="description" content="一个克苏鲁与洛夫克拉夫特式怪奇文学作品编年史网页，包含时间线、文献库、神话图谱与研究札记。" />
+  <meta name="description" content="一个克苏鲁与洛夫克拉夫特式怪奇文学作品编年史网页，包含时间线、扩展文献库、神话图谱、来源索引与互动检索台。" />
   <meta name="theme-color" content="#031412" />
   <meta property="og:title" content="不可名状作品编年史" />
-  <meta property="og:description" content="暗色档案馆风格的怪奇文学作品时间线与文献库。" />
+  <meta property="og:description" content="暗色档案馆风格的怪奇文学作品时间线、文献库与神话图谱。" />
   <meta property="og:type" content="website" />
   <link rel="icon" href="./assets/sigil.svg" type="image/svg+xml" />
-  <link rel="stylesheet" href="./styles.css?v=20260603c" />
+  <link rel="preload" href="./assets/hero-cinematic.png" as="image" />
+  <link rel="stylesheet" href="./styles.css?v=20260603d" />
 </head>
 <body>
   <a class="skip-link" href="#library">跳到文献库</a>
+  <div class="site-progress" aria-hidden="true"><span></span></div>
+  <canvas class="abyss-canvas" aria-hidden="true"></canvas>
 
   <main id="top">
     <section class="archive-stage" aria-label="不可名状作品编年史首页">
@@ -43,7 +46,7 @@
           <a href="#library">文献库</a>
           <a href="#mythos">神话体系</a>
           <a href="#research">调查札记</a>
-          <a href="#about">关于</a>
+          <a href="#sources">来源</a>
         </nav>
         <div class="nav-tools">
           <a class="search" href="#search" aria-label="前往检索"><span>⌕</span>检索</a>
@@ -51,214 +54,194 @@
         </div>
       </header>
 
-      <div class="hero-copy">
+      <div class="hero-copy" data-reveal="hero">
         <p class="eyebrow">CHRONICLE OF ELDRITCH WORKS</p>
         <h1>不可名状<br />作品编年史</h1>
-        <p class="lede">一部穿越时空的作品年表，收录那些窥见真相的人所留下的文字、图像与符号。它们并非虚构，而是记录。</p>
-        <a class="primary-cta" href="#library">开始探索编年史 <span>→</span></a>
+        <p class="lede">从早期梦境、深海证词、禁书母题，到南极深时与印斯茅斯血统疑案，把洛夫克拉夫特式作品整理成可浏览、可检索、可扩展的文学档案馆。</p>
+        <div class="hero-actions">
+          <a class="primary-cta" href="#library">开始探索编年史 <span>→</span></a>
+          <a class="secondary-cta" href="#mythos">打开神话图谱</a>
+        </div>
+        <ul class="archive-status" aria-label="档案馆状态">
+          <li><strong data-work-count>35</strong><span>作品记录</span></li>
+          <li><strong>1908–1936</strong><span>创作年代跨度</span></li>
+          <li><strong>3</strong><span>来源入口</span></li>
+        </ul>
       </div>
 
-      <article class="featured-scroll" aria-label="重点文献：死灵之书节录">
+      <article class="featured-scroll" aria-label="重点文献：克苏鲁的呼唤" data-reveal="scroll">
         <img class="scroll-asset" src="./assets/parchment.png" alt="旧纸档案，左侧绘有荒废塔楼和手稿痕迹" />
-        <div class="ribbon">重点文献</div>
+        <div class="ribbon">核心节点</div>
         <div class="scroll-copy">
-          <p class="scroll-state">已收录，核心文献</p>
-          <h2>死灵之书（节录）</h2>
-          <p class="latin">The Necronomicon (Excerpts)</p>
-          <p>阿卜杜勒·阿尔哈兹莱德 著｜约公元730年</p>
-          <p>据传由大马士革的狂人所著，记录了古老而禁忌的知识，其中容纳旧日支配者的召唤、仪式与宇宙的结构。</p>
-          <a href="#library">查看文献详情 <span>→</span></a>
+          <p class="scroll-state">1926 创作，1928 发表</p>
+          <h2>克苏鲁的呼唤</h2>
+          <p class="latin">The Call of Cthulhu</p>
+          <p>梦境、雕像、警方记录和海难报道互相拼接，形成拉莱耶与沉睡旧日支配者的核心档案。</p>
+          <a href="#library">定位文献 <span>→</span></a>
         </div>
       </article>
 
-      <section id="timeline" class="timeline-archive" aria-label="编年史时间线">
+      <section id="timeline" class="timeline-archive" aria-label="编年史时间线" data-reveal="timeline">
         <div class="timeline-rail" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
         <div class="timeline-head">
           <div><span class="small-sigil"></span><strong>编年史时间线</strong></div>
           <a href="#chronology">查看完整时间线 <span>→</span></a>
         </div>
-        <ol class="timeline-list">
-          <li>
-            <time><span>约公元</span>730<em>年</em></time>
-            <div class="entry-copy"><h3>死灵之书（节录）</h3><p>最早可追溯的禁忌文献之一，揭示了旧日支配者的名讳与古老仪式。</p><a href="#library">查看详情 <span>→</span></a></div>
-            <img class="entry-seal" src="./assets/seal-book.png" alt="" aria-hidden="true" />
-          </li>
-          <li>
-            <time>1922<em>年</em></time>
-            <div class="entry-copy"><h3>疯狂山脉的调查报告</h3><p>对南极大陆异常地貌与远古城市遗迹的考察记录，其中暗示了非人类智慧的存在。</p><a href="#library">查看详情 <span>→</span></a></div>
-            <img class="entry-seal" src="./assets/seal-mountain.png" alt="" aria-hidden="true" />
-          </li>
-          <li>
-            <time>1936<em>年</em></time>
-            <div class="entry-copy"><h3>印斯茅斯日记残页</h3><p>一位匿名者的日记片段，记录了深潜者的后裔与海底城市的秘密。</p><a href="#library">查看详情 <span>→</span></a></div>
-            <img class="entry-seal" src="./assets/seal-wave.png" alt="" aria-hidden="true" />
-          </li>
-          <li>
-            <time>1947<em>年</em></time>
-            <div class="entry-copy"><h3>克苏鲁神话：文本汇编</h3><p>多位研究者对分散文献的整理与注释，试图构建完整的神话体系。</p><a href="#library">查看详情 <span>→</span></a></div>
-            <img class="entry-seal" src="./assets/seal-star.png" alt="" aria-hidden="true" />
-          </li>
+        <ol class="timeline-list" id="hero-timeline" aria-live="polite">
+          <li><time>1917<em>年</em></time><div class="entry-copy"><h3>达贡</h3><p>深海证词和远古崇拜进入作品谱系。</p><a href="#library">查看详情 <span>→</span></a></div><img class="entry-seal" src="./assets/seal-wave.png" alt="" aria-hidden="true" /></li>
+          <li><time>1921<em>年</em></time><div class="entry-copy"><h3>无名之城</h3><p>沙漠城市把历史尺度推到人类之前。</p><a href="#library">查看详情 <span>→</span></a></div><img class="entry-seal" src="./assets/seal-star.png" alt="" aria-hidden="true" /></li>
+          <li><time>1926<em>年</em></time><div class="entry-copy"><h3>克苏鲁的呼唤</h3><p>梦、雕像和远海事件组成同一份档案。</p><a href="#library">查看详情 <span>→</span></a></div><img class="entry-seal" src="./assets/seal-book.png" alt="" aria-hidden="true" /></li>
+          <li><time>1931<em>年</em></time><div class="entry-copy"><h3>疯狂山脉</h3><p>南极遗迹揭示深时与非人文明。</p><a href="#library">查看详情 <span>→</span></a></div><img class="entry-seal" src="./assets/seal-mountain.png" alt="" aria-hidden="true" /></li>
         </ol>
       </section>
     </section>
 
-    <section id="library" class="archive-section library-section" aria-labelledby="library-title">
+    <section id="library" class="archive-section library-section" aria-labelledby="library-title" data-section="library">
       <div class="section-kicker"><span></span> 完整文献库</div>
-      <div class="section-heading split-heading">
+      <div class="section-heading split-heading" data-reveal>
         <div>
-          <h2 id="library-title">从纸页、梦境与远海中索引作品</h2>
-          <p>文献库按年代、地点、主题和叙述视角整理。每条记录保留作品信息，也记录它在神话体系中的位置。</p>
+          <h2 id="library-title">把作品目录变成可探索的阅读桌</h2>
+          <p>文献库改为数据驱动：按创作年代、主题、地点、神话节点和来源入口整理。卡片使用生成式缩略图，不再只靠纯样式模拟气氛。</p>
         </div>
         <a class="text-link" href="#search">打开检索台 <span>→</span></a>
       </div>
 
-      <div class="library-grid" aria-label="文献卡片">
-        <article class="work-card" data-era="ancient" data-topic="forbidden book ritual">
-          <img src="./assets/seal-book.png" alt="" aria-hidden="true" />
-          <p class="card-meta">约公元730年 · 禁书</p>
-          <h3>死灵之书（节录）</h3>
-          <p>以伪史、仪式和残缺注释构成的核心文本。它不是答案，而是把读者带到更深处的索引。</p>
-          <dl><div><dt>地点</dt><dd>大马士革</dd></div><div><dt>线索</dt><dd>召唤仪式</dd></div></dl>
-        </article>
-        <article class="work-card" data-era="early" data-topic="dream sea testimony">
-          <img src="./assets/seal-wave.png" alt="" aria-hidden="true" />
-          <p class="card-meta">1917年 · 海岸证词</p>
-          <h3>达贡目击记录</h3>
-          <p>一位幸存者在海上漂流后的独白，记录了泥黑海床、陌生碑文与巨物的短暂显形。</p>
-          <dl><div><dt>地点</dt><dd>南太平洋</dd></div><div><dt>线索</dt><dd>深海崇拜</dd></div></dl>
-        </article>
-        <article class="work-card" data-era="middle" data-topic="city desert memory">
-          <img src="./assets/seal-star.png" alt="" aria-hidden="true" />
-          <p class="card-meta">1921年 · 失落城市</p>
-          <h3>无名之城手稿</h3>
-          <p>沙漠深处的残垣揭开了早于人类文明的城市结构，时间在石门之后变得不可信。</p>
-          <dl><div><dt>地点</dt><dd>阿拉伯沙漠</dd></div><div><dt>线索</dt><dd>地下阶梯</dd></div></dl>
-        </article>
-        <article class="work-card" data-era="middle" data-topic="cthulhu dream cult">
-          <img src="./assets/seal-star.png" alt="" aria-hidden="true" />
-          <p class="card-meta">1926年 · 梦境档案</p>
-          <h3>克苏鲁的呼唤</h3>
-          <p>梦、雕像、海难和审讯记录被拼接在一起，指向拉莱耶及沉睡中的旧日支配者。</p>
-          <dl><div><dt>地点</dt><dd>新奥尔良与远海</dd></div><div><dt>线索</dt><dd>集体梦境</dd></div></dl>
-        </article>
-        <article class="work-card" data-era="late" data-topic="cosmic color farm">
-          <img src="./assets/seal-mountain.png" alt="" aria-hidden="true" />
-          <p class="card-meta">1927年 · 异常物质</p>
-          <h3>星之彩研究案</h3>
-          <p>陨石、农场和无法命名的颜色构成一组缓慢腐蚀的证据，异常并不喧哗，却会改变土地。</p>
-          <dl><div><dt>地点</dt><dd>阿卡姆郊外</dd></div><div><dt>线索</dt><dd>非地球光谱</dd></div></dl>
-        </article>
-        <article class="work-card" data-era="late" data-topic="antarctic city expedition">
-          <img src="./assets/seal-mountain.png" alt="" aria-hidden="true" />
-          <p class="card-meta">1931年 · 南极调查</p>
-          <h3>疯狂山脉的调查报告</h3>
-          <p>考察队进入远古城市的壁画走廊，发现人类文明只是漫长地质史中的迟到注脚。</p>
-          <dl><div><dt>地点</dt><dd>南极高原</dd></div><div><dt>线索</dt><dd>古老者遗迹</dd></div></dl>
-        </article>
+      <div class="library-console" data-reveal>
+        <aside class="decade-rail" aria-label="年代筛选">
+          <p>按时期筛选</p>
+          <button type="button" class="filter-chip active" data-filter="all">全部作品</button>
+          <button type="button" class="filter-chip" data-filter="early">早期恐惧</button>
+          <button type="button" class="filter-chip" data-filter="dreamlands">梦境国度</button>
+          <button type="button" class="filter-chip" data-filter="cthulhu">神话成形</button>
+          <button type="button" class="filter-chip" data-filter="late">晚期深潜</button>
+        </aside>
+        <div class="work-shelf">
+          <div class="shelf-toolbar">
+            <div>
+              <p class="console-label">WORKS IN ARCHIVE</p>
+              <strong><span data-visible-count>35</span> 条记录可浏览</strong>
+            </div>
+            <div class="sort-note">排序：创作年份 → 发表年份</div>
+          </div>
+          <div class="library-grid" id="work-grid" aria-label="文献卡片" aria-live="polite">
+            <article class="work-card skeleton-card"><div class="work-thumb"></div><p class="card-meta">正在读取档案</p><h3>文献库装载中</h3><p>若长时间未出现，请检查浏览器是否允许读取本地数据文件。</p></article>
+          </div>
+        </div>
+        <aside class="source-panel" aria-labelledby="source-panel-title">
+          <h3 id="source-panel-title">文献来源与说明</h3>
+          <p>当前版本使用书目来源校核年代，并为可公开阅读的作品保留外部入口。站内只写摘要和索引，不搬运长篇原文。</p>
+          <ul id="source-list">
+            <li><a href="https://www.hplovecraft.com/writings/fiction/chrono.aspx" target="_blank" rel="noreferrer">The H. P. Lovecraft Archive</a><span>作品年表与书目信息</span></li>
+            <li><a href="https://www.gutenberg.org/ebooks/author/34724" target="_blank" rel="noreferrer">Project Gutenberg</a><span>公开文本入口</span></li>
+            <li><a href="https://archive.org/search?query=creator%3A%22Lovecraft%2C+H.+P.+%28Howard+Phillips%29%2C+1890-1937%22" target="_blank" rel="noreferrer">Internet Archive</a><span>馆藏检索入口</span></li>
+          </ul>
+        </aside>
       </div>
     </section>
 
-    <section id="chronology" class="archive-section chronology-section" aria-labelledby="chronology-title">
+    <section id="chronology" class="archive-section chronology-section" aria-labelledby="chronology-title" data-section="chronology">
       <div class="section-kicker"><span></span> 年代索引</div>
-      <div class="section-heading">
-        <h2 id="chronology-title">一条从伪史走向现代恐惧的时间线</h2>
-        <p>下方时间线混合虚构文献、作品发表节点和档案馆内的研究注释。它帮助读者按年代进入神话结构，而不是按百科词条迷路。</p>
+      <div class="section-heading" data-reveal>
+        <h2 id="chronology-title">一条从哥特残影走向宇宙深时的时间河</h2>
+        <p>时间线不再只列几个节点，而是按创作年份自动生成。点击任意节点会把检索台同步到对应作品。</p>
       </div>
-      <ol class="deep-timeline">
-        <li><time>730</time><div><h3>禁书传说成形</h3><p>死灵之书的传说被置于东方手稿、译本和残页之间，成为后续作品引用的黑色母题。</p></div></li>
-        <li><time>1917</time><div><h3>海上幸存者证词</h3><p>达贡式叙述建立了“个体目击、无法证实、精神崩塌”的档案口吻。</p></div></li>
-        <li><time>1926</time><div><h3>梦境与雕像互证</h3><p>克苏鲁的呼唤把散落的梦、警局记录、考古物和海难报道组成可怕的整体。</p></div></li>
-        <li><time>1927</time><div><h3>宇宙异常进入乡野</h3><p>星之彩将恐惧从神殿和远海带到农田，让宇宙冷漠感落在日常生活中。</p></div></li>
-        <li><time>1931</time><div><h3>南极遗迹揭示深时</h3><p>疯狂山脉把尺度推到地质年代，人类从主角变成迟来的旁观者。</p></div></li>
-        <li><time>1936</time><div><h3>印斯茅斯血统疑案</h3><p>海边小镇、家族谱系和生物混血把神话恐惧转向身份本身。</p></div></li>
-      </ol>
+      <ol class="deep-timeline" id="deep-timeline" aria-live="polite"></ol>
     </section>
 
-    <section id="mythos" class="archive-section mythos-section" aria-labelledby="mythos-title">
+    <section id="mythos" class="archive-section mythos-section" aria-labelledby="mythos-title" data-section="mythos">
       <div class="section-kicker"><span></span> 神话体系</div>
-      <div class="mythos-layout">
+      <div class="mythos-layout" data-reveal>
         <div class="section-heading">
           <h2 id="mythos-title">不是怪物图鉴，而是关系图谱</h2>
-          <p>神话体系的关键不在于记住每个名字，而在于理解文本如何反复使用梦境、深海、远古城市、禁书和非人尺度。</p>
-          <ul class="motif-list">
-            <li><strong>深海</strong><span>远离陆地秩序，连接达贡、拉莱耶和印斯茅斯。</span></li>
+          <p>点击图谱节点，查看对应母题在作品库中的分布。神话体系的关键不在记住名字，而在理解梦境、深海、禁书、远古城市和非人尺度如何反复互文。</p>
+          <ul class="motif-list" id="motif-summary">
+            <li><strong>深海</strong><span>连接达贡、拉莱耶、印斯茅斯和海底城市。</span></li>
             <li><strong>禁书</strong><span>把不可验证的知识变成可传播的危险。</span></li>
             <li><strong>深时</strong><span>用地质年代削弱人的中心位置。</span></li>
             <li><strong>梦境</strong><span>让远方事件以无法拒绝的方式进入意识。</span></li>
           </ul>
         </div>
         <div class="cosmic-map" aria-label="神话关系图谱示意">
+          <div class="atlas-image" aria-hidden="true"></div>
           <div class="orbit orbit-a"></div>
           <div class="orbit orbit-b"></div>
           <div class="orbit orbit-c"></div>
-          <span class="node core">拉莱耶</span>
-          <span class="node n1">梦境</span>
-          <span class="node n2">禁书</span>
-          <span class="node n3">远古城市</span>
-          <span class="node n4">深海</span>
-          <span class="node n5">血统</span>
+          <button type="button" class="node core active" data-node="克苏鲁">克苏鲁</button>
+          <button type="button" class="node n1" data-node="梦境">梦境</button>
+          <button type="button" class="node n2" data-node="禁书">禁书</button>
+          <button type="button" class="node n3" data-node="古城">远古城市</button>
+          <button type="button" class="node n4" data-node="深海">深海</button>
+          <button type="button" class="node n5" data-node="血统">血统</button>
+          <div class="node-readout" id="node-readout" aria-live="polite">
+            <p>当前节点</p>
+            <strong>克苏鲁</strong>
+            <span>核心神话节点，连接梦境、深海、拉莱耶和集体证词。</span>
+          </div>
         </div>
       </div>
     </section>
 
-    <section id="research" class="archive-section research-section" aria-labelledby="research-title">
+    <section id="research" class="archive-section research-section" aria-labelledby="research-title" data-section="research">
       <div class="section-kicker"><span></span> 调查札记</div>
-      <div class="section-heading split-heading">
+      <div class="section-heading split-heading" data-reveal>
         <div>
           <h2 id="research-title">把作品当作档案来检索</h2>
-          <p>这里提供一个轻量检索台。你可以按主题筛选，也可以输入关键词。所有内容都是前端本地状态，适合静态部署和开源复用。</p>
+          <p>输入关键词、点击主题，或抽取一条档案。所有交互都在浏览器本地完成，适合静态部署和开源复用。</p>
         </div>
         <button class="random-entry" type="button">抽取一条档案</button>
       </div>
-      <div id="search" class="search-panel" role="search" aria-label="文献检索">
-        <label for="archive-query">输入关键词</label>
-        <div class="search-row">
-          <input id="archive-query" type="search" placeholder="例如：深海、梦境、南极、禁书" autocomplete="off" />
-          <p class="result-count" aria-live="polite">显示全部档案</p>
+      <div class="research-desk" data-reveal>
+        <div id="search" class="search-panel" role="search" aria-label="文献检索">
+          <label for="archive-query">输入关键词</label>
+          <div class="search-row">
+            <input id="archive-query" type="search" placeholder="例如：深海、梦境、南极、禁书、阿卡姆" autocomplete="off" />
+            <p class="result-count" aria-live="polite">显示全部档案</p>
+          </div>
+          <div class="topic-row" aria-label="主题筛选">
+            <button type="button" class="topic-chip active" data-topic="all">全部</button>
+            <button type="button" class="topic-chip" data-topic="深海">深海</button>
+            <button type="button" class="topic-chip" data-topic="梦境">梦境</button>
+            <button type="button" class="topic-chip" data-topic="禁书">禁书</button>
+            <button type="button" class="topic-chip" data-topic="古城">远古城市</button>
+            <button type="button" class="topic-chip" data-topic="阿卡姆">阿卡姆</button>
+          </div>
         </div>
-        <div class="filter-row" aria-label="主题筛选">
-          <button type="button" class="filter-chip active" data-filter="all">全部</button>
-          <button type="button" class="filter-chip" data-filter="sea">深海</button>
-          <button type="button" class="filter-chip" data-filter="book">禁书</button>
-          <button type="button" class="filter-chip" data-filter="city">远古城市</button>
-          <button type="button" class="filter-chip" data-filter="dream">梦境</button>
-        </div>
-      </div>
-      <div class="case-list" aria-label="检索结果">
-        <article class="case-item" data-filter="book" data-search="死灵之书 禁书 仪式 阿尔哈兹莱德">
-          <span>730</span><div><h3>死灵之书（节录）</h3><p>禁书母题、仪式结构和伪史口吻的核心入口。</p></div><a href="#library">定位文献</a>
-        </article>
-        <article class="case-item" data-filter="sea dream" data-search="达贡 深海 海岸 证词 巨物">
-          <span>1917</span><div><h3>达贡目击记录</h3><p>通过幸存者证词建立深海恐惧和不可靠叙述。</p></div><a href="#library">定位文献</a>
-        </article>
-        <article class="case-item" data-filter="city" data-search="无名之城 沙漠 地下阶梯 远古城市">
-          <span>1921</span><div><h3>无名之城手稿</h3><p>城市遗迹把时间尺度从历史推向文明之前。</p></div><a href="#library">定位文献</a>
-        </article>
-        <article class="case-item" data-filter="dream sea" data-search="克苏鲁 呼唤 梦境 拉莱耶 雕像">
-          <span>1926</span><div><h3>克苏鲁的呼唤</h3><p>梦境、考古物和远海事件互相拼接，构成神话节点。</p></div><a href="#library">定位文献</a>
-        </article>
-        <article class="case-item" data-filter="city" data-search="疯狂山脉 南极 古老者 城市 考察">
-          <span>1931</span><div><h3>疯狂山脉的调查报告</h3><p>南极远古城市让人类历史显得短促而脆弱。</p></div><a href="#library">定位文献</a>
-        </article>
-        <article class="case-item" data-filter="sea" data-search="印斯茅斯 深潜者 血统 海底城市">
-          <span>1936</span><div><h3>印斯茅斯日记残页</h3><p>海边小镇与家族谱系共同指向身份恐惧。</p></div><a href="#library">定位文献</a>
-        </article>
+        <div class="case-list" id="case-list" aria-label="检索结果" aria-live="polite"></div>
       </div>
     </section>
 
-    <section id="about" class="archive-section about-section" aria-labelledby="about-title">
+    <section id="sources" class="archive-section sources-section" aria-labelledby="sources-title" data-section="sources">
+      <div class="section-kicker"><span></span> 来源与版权边界</div>
+      <div class="about-layout" data-reveal>
+        <div class="section-heading">
+          <h2 id="sources-title">扩展数据源，但不把网站变成搬运库</h2>
+          <p>这个站点的正确方向是：维护书目数据、中文摘要、主题索引、外部阅读入口和可扩展结构。长篇原文、译文和图片版权应交给原来源或授权版本处理。</p>
+        </div>
+        <div class="release-card source-card">
+          <h3>数据扩展范围</h3>
+          <ul>
+            <li>35 条作品记录，覆盖 1908–1936 的主要创作节点</li>
+            <li>每条记录含创作年、发表年、地点、母题、图谱节点与来源标签</li>
+            <li>保留 H. P. Lovecraft Archive、Project Gutenberg、Internet Archive 三类入口</li>
+            <li>站内只写原创中文摘要，不收录长篇原文摘录</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="archive-section about-section" aria-labelledby="about-title" data-section="about">
       <div class="section-kicker"><span></span> 关于项目</div>
-      <div class="about-layout">
+      <div class="about-layout" data-reveal>
         <div class="section-heading">
           <h2 id="about-title">一个可部署、可开源、可继续扩展的文学档案馆</h2>
-          <p>页面以静态 HTML、CSS 和 JavaScript 构建，适合 GitHub Pages。所有可交互内容都在浏览器本地运行，不依赖后端服务。</p>
+          <p>页面以静态 HTML、CSS 和 JavaScript 构建，适合 GitHub Pages。新增数据文件、生成式图像资产、动效层、交互图谱与本地检索逻辑后，它已经从概念页升级为完整站点。</p>
         </div>
         <div class="release-card">
           <h3>开源交付范围</h3>
           <ul>
             <li>完整单页网站与响应式样式</li>
-            <li>生成式背景、羊皮纸和徽章素材</li>
-            <li>本地检索、筛选和随机档案交互</li>
+            <li>生成式背景、图谱、阅读桌和 35 张文献缩略图</li>
+            <li>数据驱动文献库、主题筛选、随机档案、图谱节点联动</li>
             <li>README、MIT License、部署记录和 QA 脚本</li>
           </ul>
           <a class="primary-cta compact" href="#top">回到封面 <span>↑</span></a>
@@ -268,14 +251,13 @@
   </main>
 
   <footer class="site-footer" aria-label="页脚">
-    <p>我们并非在黑暗中寻找真相，而是在真相中意识到自己的渺小。<span>H.P. 洛夫克拉夫特</span></p>
+    <p>这不是恐吓读者的怪物目录，而是一张关于文本、年代和宇宙尺度的索引。<span>ELDRITCH ARCHIVE</span></p>
     <nav aria-label="页脚导航">
-      <a href="#library">文献库</a><a href="#chronology">时间线</a><a href="#mythos">神话体系</a><a href="#research">检索台</a>
+      <a href="#library">文献库</a><a href="#chronology">时间线</a><a href="#mythos">神话体系</a><a href="#research">检索台</a><a href="#sources">来源</a>
     </nav>
-    <div class="socials" aria-label="符号装饰"><span>ELDRITCH ARCHIVE</span><i>◉</i><i>ᚷ</i><i>⊙</i></div>
+    <div class="socials" aria-label="符号装饰"><span>不可名状作品编年史</span><i>◉</i><i>ᚷ</i><i>⊙</i></div>
   </footer>
 
-  <script src="./script.js?v=20260603c" defer></script>
+  <script src="./script.js?v=20260603d" defer></script>
 </body>
 </html>
-
