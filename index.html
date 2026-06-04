@@ -11,7 +11,7 @@
   <meta property="og:type" content="website" />
   <link rel="icon" href="./assets/sigil.svg" type="image/svg+xml" />
   <link rel="preload" href="./assets/hero-cinematic.png" as="image" />
-  <link rel="stylesheet" href="./styles.css?v=20260604a" />
+  <link rel="stylesheet" href="./styles.css?v=20260604b" />
 </head>
 <body>
   <a class="skip-link" href="#library">跳到文献库</a>
@@ -46,6 +46,7 @@
           <a href="#library">文献库</a>
           <a href="#mythos">神话体系</a>
           <a href="#network">关系网络</a>
+          <a href="#bibliography">书目索引</a>
           <a href="#research">调查札记</a>
           <a href="#sources">来源</a>
         </nav>
@@ -211,6 +212,34 @@
       </div>
     </section>
 
+    <section id="bibliography" class="archive-section bibliography-section" aria-labelledby="bibliography-title" data-section="bibliography">
+      <div class="section-kicker"><span></span> 书目索引室</div>
+      <div class="section-heading split-heading" data-reveal>
+        <div>
+          <h2 id="bibliography-title">让刊物、合作署名和译名也成为可读线索</h2>
+          <p>这一层把原本藏在卡片里的首次发表刊物、合作/署名背景和中英文异名抽出来，形成更像研究型档案馆的索引界面。</p>
+        </div>
+        <a class="text-link" href="#research">去检索台 <span>→</span></a>
+      </div>
+      <div class="bibliography-lab" data-reveal>
+        <article class="biblio-panel publication-panel">
+          <p class="console-label">PUBLICATION CONSTELLATION</p>
+          <h3>发表刊物星座</h3>
+          <div id="publication-ledger" class="publication-ledger" aria-live="polite"></div>
+        </article>
+        <article class="biblio-panel collaboration-panel">
+          <p class="console-label">CREDIT DOSSIER</p>
+          <h3>合作与署名档案</h3>
+          <div id="collaboration-ledger" class="collaboration-ledger" aria-live="polite"></div>
+        </article>
+        <article class="biblio-panel alias-panel">
+          <p class="console-label">TITLE CROSSWALK</p>
+          <h3>译名与异名对照</h3>
+          <div id="alias-ledger" class="alias-ledger" aria-live="polite"></div>
+        </article>
+      </div>
+    </section>
+
     <section id="research" class="archive-section research-section" aria-labelledby="research-title" data-section="research">
       <div class="section-kicker"><span></span> 调查札记</div>
       <div class="section-heading split-heading" data-reveal>
@@ -283,11 +312,11 @@
   <footer class="site-footer" aria-label="页脚">
     <p>这不是恐吓读者的怪物目录，而是一张关于文本、年代和宇宙尺度的索引。<span>ELDRITCH ARCHIVE</span></p>
     <nav aria-label="页脚导航">
-      <a href="#library">文献库</a><a href="#chronology">时间线</a><a href="#mythos">神话体系</a><a href="#network">关系网络</a><a href="#research">检索台</a><a href="#sources">来源</a>
+      <a href="#library">文献库</a><a href="#chronology">时间线</a><a href="#mythos">神话体系</a><a href="#network">关系网络</a><a href="#bibliography">书目索引</a><a href="#research">检索台</a><a href="#sources">来源</a>
     </nav>
     <div class="socials" aria-label="符号装饰"><span>不可名状作品编年史</span><i>◉</i><i>ᚷ</i><i>⊙</i></div>
   </footer>
 
-  <script src="./script.js?v=20260604a" defer></script>
+  <script src="./script.js?v=20260604b" defer></script>
 </body>
 </html>

@@ -683,6 +683,7 @@ h1 { max-width: 720px; font-size: clamp(72px, 6vw, 104px); }
 .decade-rail,
 .source-panel,
 .search-panel,
+.biblio-panel,
 .release-card {
   box-shadow: inset 0 0 0 1px oklch(72% 0.1 76 / .05);
 }
@@ -892,6 +893,127 @@ h1 { max-width: 720px; font-size: clamp(72px, 6vw, 104px); }
 .node-readout strong { display: block; color: var(--brass); font: 700 28px/1.1 var(--serif); }
 .node-readout span { display: block; margin-top: 8px; color: var(--muted); font: 15px/1.7 var(--serif); }
 
+.bibliography-section {
+  background:
+    radial-gradient(circle at 12% 18%, oklch(72% 0.1 76 / .11), transparent 24rem),
+    radial-gradient(circle at 78% 44%, oklch(28% 0.06 176 / .22), transparent 32rem),
+    linear-gradient(180deg, oklch(4.5% 0.02 180), oklch(6% 0.026 178));
+}
+.bibliography-lab {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(260px, .82fr);
+  gap: 20px;
+  align-items: stretch;
+}
+.biblio-panel {
+  position: relative;
+  overflow: hidden;
+  padding: clamp(22px, 2.4vw, 34px);
+  border: 1px solid var(--line);
+  background:
+    linear-gradient(145deg, oklch(12% 0.038 174 / .88), oklch(5% 0.02 180 / .9)),
+    repeating-linear-gradient(90deg, transparent 0 28px, oklch(72% 0.1 76 / .04) 29px 30px);
+}
+.biblio-panel::before {
+  content: "";
+  position: absolute;
+  inset: -18% auto auto -16%;
+  width: 360px;
+  height: 360px;
+  border: 1px solid oklch(72% 0.1 76 / .22);
+  border-radius: 50%;
+  background: radial-gradient(circle, oklch(72% 0.1 76 / .12), transparent 62%);
+  pointer-events: none;
+}
+.biblio-panel h3 {
+  position: relative;
+  margin: 0 0 22px;
+  color: var(--paper-strong);
+  font: 700 clamp(28px, 2.5vw, 42px)/1.12 var(--serif);
+  letter-spacing: .05em;
+}
+.publication-panel { grid-row: span 2; }
+.publication-ledger,
+.collaboration-ledger,
+.alias-ledger { position: relative; display: grid; gap: 12px; }
+.publication-card {
+  display: grid;
+  grid-template-columns: 92px minmax(0, 1fr);
+  gap: 18px;
+  align-items: start;
+  padding: 16px;
+  border: 1px solid var(--line-faint);
+  background: linear-gradient(90deg, oklch(8% 0.03 178 / .78), oklch(5% 0.02 180 / .52));
+  transition: transform .24s cubic-bezier(.22, 1, .36, 1), border-color .24s, background .24s;
+}
+.publication-card:hover {
+  transform: translateX(5px);
+  border-color: oklch(72% 0.1 76 / .36);
+  background: linear-gradient(90deg, oklch(12% 0.038 174 / .82), oklch(6% 0.024 180 / .58));
+}
+.ledger-stat {
+  display: grid;
+  place-items: center;
+  min-height: 78px;
+  border: 1px solid var(--line-faint);
+  background: oklch(4% 0.016 180 / .64);
+}
+.ledger-stat strong { color: var(--brass); font: 700 36px/1 var(--serif); }
+.ledger-stat span { color: var(--dim); font: 11px/1.2 var(--mono); letter-spacing: .16em; }
+.publication-card h4,
+.credit-card h4 { margin: 0; color: var(--paper-strong); font: 700 21px/1.28 var(--serif); letter-spacing: .04em; }
+.publication-card p,
+.credit-card p { margin: 8px 0 12px; color: var(--muted); font: 13px/1.45 var(--mono); letter-spacing: .08em; }
+.mini-workline { display: flex; flex-wrap: wrap; gap: 8px; }
+.mini-workline button,
+.credit-card button,
+.alias-row {
+  border: 1px solid var(--line-faint);
+  color: var(--paper);
+  background: oklch(5% 0.02 180 / .54);
+  cursor: pointer;
+  transition: color .2s, border-color .2s, background .2s, transform .2s;
+}
+.mini-workline button {
+  min-height: 30px;
+  padding: 0 10px;
+  font: 12px/1 var(--mono);
+  letter-spacing: .08em;
+}
+.mini-workline button:hover,
+.credit-card button:hover,
+.alias-row:hover { color: var(--brass); border-color: var(--brass); transform: translateY(-1px); }
+.credit-summary {
+  display: grid;
+  gap: 6px;
+  margin-bottom: 14px;
+  padding: 18px;
+  border: 1px solid var(--line-faint);
+  background: radial-gradient(circle at 90% 20%, oklch(72% 0.1 76 / .13), transparent 14rem), oklch(5% 0.02 180 / .58);
+}
+.credit-summary strong { color: var(--brass); font: 700 48px/1 var(--serif); }
+.credit-summary span { color: var(--paper-strong); font: 18px/1.3 var(--serif); }
+.credit-summary em { color: var(--dim); font: 12px/1.45 var(--mono); letter-spacing: .12em; font-style: normal; }
+.credit-card {
+  display: grid;
+  grid-template-columns: 58px minmax(0, 1fr);
+  gap: 14px;
+  padding: 16px 0;
+  border-top: 1px solid var(--line-faint);
+}
+.credit-card time { color: var(--brass); font: 700 20px/1 var(--serif); }
+.credit-card h4 span { display: block; margin-top: 4px; color: var(--brass); font: 14px/1.35 var(--serif); }
+.credit-card small { display: block; color: var(--dim); font: 12px/1.55 var(--mono); letter-spacing: .06em; }
+.credit-card button { min-height: 32px; margin-top: 12px; padding: 0 12px; font: 12px/1 var(--mono); letter-spacing: .08em; }
+.alias-row {
+  display: grid;
+  gap: 5px;
+  padding: 13px 14px;
+  text-align: left;
+}
+.alias-row span { color: var(--paper-strong); font: 16px/1.25 var(--serif); }
+.alias-row em { color: var(--muted); font: 12px/1.45 var(--mono); letter-spacing: .08em; font-style: normal; }
+
 .research-section {
   background:
     linear-gradient(180deg, oklch(5% 0.024 180 / .86), oklch(4% 0.018 180 / .94)),
@@ -1012,6 +1134,7 @@ h1 { max-width: 720px; font-size: clamp(72px, 6vw, 104px); }
   .timeline-archive { width: auto; }
   .library-console,
   .research-desk,
+  .bibliography-lab,
   .relationship-lab { grid-template-columns: 1fr; }
   .decade-rail,
   .source-panel,
@@ -1040,6 +1163,9 @@ h1 { max-width: 720px; font-size: clamp(72px, 6vw, 104px); }
   .case-item { grid-template-columns: 72px minmax(0, 1fr); }
   .case-item a { grid-column: 2; }
   .deep-timeline button { width: 100%; }
+  .publication-card,
+  .credit-card { grid-template-columns: 1fr; }
+  .ledger-stat { place-items: start; align-content: center; padding: 14px; }
   .network-visual { min-height: 560px; }
   .network-detail { left: 12px; right: 12px; bottom: 12px; width: auto; padding: 18px; }
   .network-node text { font-size: 14px; }

@@ -63,6 +63,7 @@ for (const target of cssRefs) {
 
 const requiredSelectors = [
   'archive-stage', 'library-console', 'library-grid', 'deep-timeline', 'cosmic-map', 'relationship-lab',
+  'bibliography-lab', 'publication-ledger', 'collaboration-ledger', 'alias-ledger',
   'search-panel', 'case-list', 'site-progress', 'abyss-canvas', 'source-panel'
 ];
 for (const selector of requiredSelectors) {
@@ -71,9 +72,10 @@ for (const selector of requiredSelectors) {
 
 if (!script.includes('fetch(DATA_URL)')) fail('Data-driven works fetch missing');
 if (!script.includes('applyFilters')) fail('Search/filter interaction function missing');
+if (!script.includes('renderBibliography')) fail('Bibliographic index renderer missing');
 if (!script.includes('IntersectionObserver')) warn('Reveal/navigation observer missing');
 if (!script.includes('startCanvas')) warn('Ambient canvas motion missing');
-if (!index.includes('styles.css?v=20260604a') || !index.includes('script.js?v=20260604a')) fail('Cache-busted CSS/JS version not updated');
+if (!index.includes('styles.css?v=20260604b') || !index.includes('script.js?v=20260604b')) fail('Cache-busted CSS/JS version not updated');
 
 if (!Array.isArray(data.works) || data.works.length < 30) fail('Expected at least 30 works in data/works.json');
 if (!Array.isArray(data.meta?.sources) || data.meta.sources.length < 6) fail('Expected at least six literature/data sources');

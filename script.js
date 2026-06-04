@@ -20,6 +20,9 @@ const relationshipSvg = document.querySelector('#relationship-network');
 const networkFilters = document.querySelector('#network-filters');
 const networkDetail = document.querySelector('#network-detail');
 const networkEdgeList = document.querySelector('#network-edge-list');
+const publicationLedger = document.querySelector('#publication-ledger');
+const collaborationLedger = document.querySelector('#collaboration-ledger');
+const aliasLedger = document.querySelector('#alias-ledger');
 const motionOK = !window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
 let works = [];
@@ -208,6 +211,83 @@ function renderSourceList() {
   `).join('');
 }
 
+function renderPublicationLedger() {
+  if (!publicationLedger) return;
+  const groups = new Map();
+  works.forEach((work) => {
+    const venue = work.publication?.venue || '未知刊物';
+    const group = groups.get(venue) || { venue, type: work.publication?.type || 'periodical', works: [] };
+    group.works.push(work);
+    groups.set(venue, group);
+  });
+
+  publicationLedger.innerHTML = [...groups.values()]
+    .sort((a, b) => b.works.length - a.works.length || Math.min(...a.works.map((work) => work.publicationYear || work.compositionYear)) - Math.min(...b.works.map((work) => work.publicationYear || work.compositionYear)))
+    .slice(0, 8)
+    .map((group) => {
+      const years = group.works.map((work) => work.publicationYear || work.compositionYear).filter(Boolean);
+      const span = years.length ? `${Math.min(...years)}–${Math.max(...years)}` : '年份待校核';
+      return `
+        <section class="publication-card">
+          <div class="ledger-stat"><strong>${group.works.length}</strong><span>条记录</span></div>
+          <div>
+            <h4>${esc(group.venue)}</h4>
+            <p>${esc(span)} · ${esc(group.type === 'book' ? '书籍/合集' : '期刊/杂志')}</p>
+            <div class="mini-workline">
+              ${group.works.slice(0, 4).map((work) => `<button type="button" data-locate="${esc(work.id)}">${esc(work.titleZh)}</button>`).join('')}
+            </div>
+          </div>
+        </section>
+      `;
+    }).join('');
+}
+
+function renderCollaborationLedger() {
+  if (!collaborationLedger) return;
+  const collaborated = works.filter((work) => work.collaborators?.length);
+  const soloCount = works.length - collaborated.length;
+  collaborationLedger.innerHTML = `
+    <div class="credit-summary">
+      <strong>${collaborated.length}</strong>
+      <span>条合作/署名记录</span>
+      <em>${soloCount} 条为 Lovecraft 单人署名基线</em>
+    </div>
+    ${collaborated.map((work) => `
+      <section class="credit-card">
+        <time>${work.compositionYear}</time>
+        <div>
+          <h4>${esc(work.titleZh)} <span>${esc(work.titleEn)}</span></h4>
+          <p>${esc(work.collaborators.map((item) => `${item.name} · ${item.role}`).join(' / '))}</p>
+          <small>${esc(work.collaborators.map((item) => item.note).filter(Boolean).join('；'))}</small>
+          <button type="button" data-locate="${esc(work.id)}">定位文献卡片</button>
+        </div>
+      </section>
+    `).join('')}
+  `;
+}
+
+function renderAliasLedger() {
+  if (!aliasLedger) return;
+  const rows = works
+    .map((work) => ({ work, aliases: aliasText(work) }))
+    .filter((item) => item.aliases)
+    .sort((a, b) => b.aliases.length - a.aliases.length || a.work.compositionYear - b.work.compositionYear)
+    .slice(0, 12);
+
+  aliasLedger.innerHTML = rows.map(({ work, aliases }) => `
+    <button type="button" class="alias-row" data-locate="${esc(work.id)}">
+      <span>${esc(work.titleZh)}</span>
+      <em>${esc(aliases)}</em>
+    </button>
+  `).join('');
+}
+
+function renderBibliography() {
+  renderPublicationLedger();
+  renderCollaborationLedger();
+  renderAliasLedger();
+}
+
 function networkNodesForEdges(edges) {
   const ids = new Set();
   edges.forEach((edge) => {
@@ -356,6 +436,7 @@ function renderAll() {
   renderTimeline();
   renderNetworkFilters();
   renderNetwork();
+  renderBibliography();
   bindDynamicInteractions();
   applyFilters();
   observeReveals();
@@ -511,7 +592,7 @@ const sectionObserver = new IntersectionObserver((entries) => {
   });
 }, { rootMargin: '-35% 0px -45% 0px', threshold: [0.1, 0.35, 0.6] });
 
-['top', 'timeline', 'library', 'mythos', 'network', 'research', 'sources', 'about'].forEach((id) => {
+['top', 'timeline', 'library', 'mythos', 'network', 'bibliography', 'research', 'sources', 'about'].forEach((id) => {
   const section = document.getElementById(id);
   if (section) sectionObserver.observe(section);
 });

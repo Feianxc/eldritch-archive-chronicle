@@ -19,6 +19,7 @@ brand/editorial
 - Chronology deep timeline
 - Mythos atlas with node interactions
 - Work relationship network with relation filters
+- Bibliographic index room for publication venues, credit notes and title aliases
 - Research/search desk
 - Literature source and rights boundary note
 - Open-source project note
@@ -27,6 +28,7 @@ brand/editorial
 - Static HTML/CSS/JS site
 - `data/works.json` with 35 work records, 6 source groups and 33 curated relationship edges
 - Publication venue/issue, collaborator/credit notes, full-text links and title aliases for work records
+- Bibliographic index UI that groups publication venues, collaborator/credit records and title crosswalk rows
 - Local search, era filters, topic filters, random archive selection, atlas node linking and relationship network filtering
 - Generated hero, atlas, reading desk, relationship observatory and work-thumbnail assets
 - GitHub Pages deployment

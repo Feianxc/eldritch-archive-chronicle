@@ -10,7 +10,7 @@ Use OKLCH tokens. Deep black-green body, abyssal teal surfaces, aged parchment h
 Serif display for literary gravitas. System sans for readable Chinese UI. Mono only for short archival labels and dates.
 
 ## Motifs
-Star charts, thin brass rules, manuscript cards, vertical timeline rail, generated seals, generated work thumbnails, atlas wall imagery, relationship-observatory imagery, subtle tentacle silhouettes, worn paper textures and restrained occult geometry.
+Star charts, thin brass rules, manuscript cards, vertical timeline rail, generated seals, generated work thumbnails, atlas wall imagery, relationship-observatory imagery, bibliographic ledger panels, subtle tentacle silhouettes, worn paper textures and restrained occult geometry.
 
 ## Motion system
 - One cinematic page-load layer: title, manuscript and timeline enter with staggered timing.
@@ -20,7 +20,7 @@ Star charts, thin brass rules, manuscript cards, vertical timeline rail, generat
 - Accessibility: `prefers-reduced-motion` disables ambient and transform-heavy motion.
 
 ## Responsive approach
-Desktop preserves the concept split-screen hero. Tablet and mobile stack the story as cover, manuscript, timeline, library, atlas, relationship graph, search, source note and project note.
+Desktop preserves the concept split-screen hero. Tablet and mobile stack the story as cover, manuscript, timeline, library, atlas, relationship graph, bibliographic index, search, source note and project note.
 
 ## Fidelity references used in the visual upgrade
 - `E:/codex_media/cthulhu_chronicle_upgrade/concept-hero-motion.png`

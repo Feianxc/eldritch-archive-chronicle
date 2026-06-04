@@ -15,6 +15,7 @@
 - Local mobile: `E:/codex_media/cthulhu_chronicle_next/local-mobile-390.png`
 - Local relationship network: `E:/codex_media/cthulhu_chronicle_next/browser-local-network-all-v3.png`
 - Local deep-sea network filter: `E:/codex_media/cthulhu_chronicle_next/browser-local-network-deepsea-v2.png`
+- Local bibliographic index: `E:/codex_media/cthulhu_chronicle_next/local-bibliography-browser-full.png`
 - Public Vercel desktop: `E:/codex_media/cthulhu_chronicle_next/public-vercel-desktop-playwright.png`
 - Public Vercel mobile: `E:/codex_media/cthulhu_chronicle_next/public-vercel-mobile-playwright.png`
 
@@ -27,6 +28,7 @@
 | Library | Filter/search desk, folios, source panel | Implemented era rail, generated thumbnails, publication details, aliases, full-text links and source panel | Exceeds reference |
 | Atlas | Large celestial map with nodes and time relationships | Implemented atlas image background and clickable code-native nodes | Match with accessible controls |
 | Relationship network | Generated observatory concept has brass nodes, edge lines and archive background | Implemented generated background, SVG nodes/edges, relation filters, detail panel and card locating | Match with code-native labels |
+| Bibliographic index | Archive concept implies ledger-like research surfaces beyond the hero | Implemented publication venue constellations, credit dossier and title crosswalk panels in the same brass/abyss visual system | Exceeds reference |
 | Data completeness | Reference implies expanded archive | `data/works.json` has 35 records, 6 source groups, 35 publication entries, 35 full-text links, 2 collaborator/credit notes and 33 edges | Exceeds reference |
 | Mobile | Need readable stacked continuation | 390px screenshot shows readable hero and stacked content | Match |
 
