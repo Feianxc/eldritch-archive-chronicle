@@ -31,8 +31,9 @@ brand/editorial
 - Bibliographic index UI that groups publication venues, collaborator/credit records and title crosswalk rows
 - Local search, era filters, topic filters, random archive selection, atlas node linking and relationship network filtering
 - Generated hero, atlas, reading desk, relationship observatory and work-thumbnail assets
+- Personal server deployment at `https://blog.feian.online/eldritch/`
 - GitHub Pages deployment
-- Vercel production deployment and prepared Cloudflare DNS subdomain configuration
+- Vercel production deployment and reserved custom-subdomain alias
 
 ## Design constraints
 - Dark abyssal editorial style
