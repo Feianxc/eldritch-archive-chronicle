@@ -15,6 +15,8 @@
 - Local mobile: `E:/codex_media/cthulhu_chronicle_next/local-mobile-390.png`
 - Local relationship network: `E:/codex_media/cthulhu_chronicle_next/browser-local-network-all-v3.png`
 - Local deep-sea network filter: `E:/codex_media/cthulhu_chronicle_next/browser-local-network-deepsea-v2.png`
+- Public Vercel desktop: `E:/codex_media/cthulhu_chronicle_next/public-vercel-desktop-playwright.png`
+- Public Vercel mobile: `E:/codex_media/cthulhu_chronicle_next/public-vercel-mobile-playwright.png`
 
 ### Comparison points
 
@@ -35,4 +37,4 @@
 
 ### Current status
 
-No material mismatch remains for the upgraded scope. The website now uses real generated assets, expanded bibliographic data, purposeful motion, a working relationship graph and deployable custom-domain configuration.
+No material mismatch remains for the upgraded scope. The website now uses real generated assets, expanded bibliographic data, purposeful motion, a working relationship graph and deployable custom-domain configuration. Vercel and GitHub Pages are public; the custom domain is waiting on the external DNS record described in `docs/deployments/20260604-vercel-eldritch-subdomain.md`.

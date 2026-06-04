@@ -30,7 +30,7 @@ brand/editorial
 - Local search, era filters, topic filters, random archive selection, atlas node linking and relationship network filtering
 - Generated hero, atlas, reading desk, relationship observatory and work-thumbnail assets
 - GitHub Pages deployment
-- Vercel production deployment and custom Cloudflare subdomain deployment
+- Vercel production deployment and prepared Cloudflare DNS subdomain configuration
 
 ## Design constraints
 - Dark abyssal editorial style

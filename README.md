@@ -4,7 +4,7 @@
 
 ## 在线访问
 
-- 自定义子域名：<https://eldritch.feian.online>
+- 自定义子域名（DNS 待添加后生效）：<https://eldritch.feian.online>
 - Vercel：<https://cthulhu-chronicle-demo.vercel.app>
 - GitHub Pages：<https://feianxc.github.io/eldritch-archive-chronicle/>
 - 开源仓库：<https://github.com/Feianxc/eldritch-archive-chronicle>
@@ -16,7 +16,7 @@
 - 增加真实图像素材：`hero-cinematic.png`、`atlas-wall.png`、`reading-desk.png`、`relationship-observatory.png`，以及 35 张作品缩略图。
 - 增强交互体验：年代筛选、关键词搜索、主题筛选、随机档案、神话节点联动、关系网络筛选、关系定位、卡片 hover 倾斜。
 - 增加首屏与滚动动效：滚动进度、粒子尘埃、雾层漂移、星图旋转、时间线脉冲、羊皮纸浮动。
-- 保留静态部署能力：Vercel、GitHub Pages 与 Cloudflare 子域名均可承载。
+- 保留静态部署能力：Vercel 与 GitHub Pages 已验证；Cloudflare 自定义子域名已完成 Vercel 侧配置检查，待 DNS 添加 `A eldritch 76.76.21.21` 后生效。
 
 ## 本地运行
 
