@@ -16,18 +16,19 @@ The target custom domain is not live yet because the DNS record does not exist a
 npm run check
 git push origin main
 vercel deploy --prod --yes
-vercel alias set https://cthulhu-chronicle-demo-84s12rga0-feians-projects.vercel.app eldritch.feian.online
+vercel alias set <production-deployment-url> eldritch.feian.online
 vercel domains inspect eldritch.feian.online
 ```
 
+The alias command reached certificate issuance but could not complete while the DNS record was missing.
+
 ## Verified artifacts
 
-- Commit: `6574492b2c0fd8d0e4fe04c53d22b8913c65f87e`
 - Vercel production alias HTTP: `200`
 - Vercel `data/works.json` HTTP: `200`
 - GitHub Pages build status: `built`
-- GitHub Pages build commit: `6574492b2c0fd8d0e4fe04c53d22b8913c65f87e`
 - GitHub Pages public HTTP: `200`
+- Public index contains the relationship network section and cache-busted `20260604a` CSS/JS references.
 
 ## DNS requirement for eldritch.feian.online
 
