@@ -18,7 +18,7 @@ Report file: `docs/qa/smoke-report.json`
 
 Target URL: `http://127.0.0.1:4173/index.html`
 
-Browser path: Codex in-app Browser after locating the active Browser runtime cache.
+Browser path: local browser automation pass.
 
 ### Checks
 
@@ -43,7 +43,7 @@ User-visible copies are also available under `E:/codex_media/cthulhu_chronicle_r
 
 ## Fidelity notes
 
-Compared against `concept-reference.png` with `view_image` in the same QA pass. The release keeps the concept's dark teal archive atmosphere, large serif hero title, torn manuscript card, central brass rail, right-side timeline rhythm, and generated occult seal imagery. Downstream sections intentionally extend the concept into a complete static website while preserving the same palette, typography, rail/list anatomy, and generated-asset treatment.
+Compared against `concept-reference.png` in the same QA pass. The release keeps the concept's dark teal archive atmosphere, large serif hero title, torn manuscript card, central brass rail, right-side timeline rhythm, and generated occult seal imagery. Downstream sections intentionally extend the concept into a complete static website while preserving the same palette, typography, rail/list anatomy, and generated-asset treatment.
 
 ## Remaining intentional deviations
 

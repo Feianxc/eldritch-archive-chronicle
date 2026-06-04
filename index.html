@@ -4,14 +4,14 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>不可名状作品编年史 | Eldritch Archive</title>
-  <meta name="description" content="一个克苏鲁与洛夫克拉夫特式怪奇文学作品编年史网页，包含时间线、扩展文献库、神话图谱、来源索引与互动检索台。" />
+  <meta name="description" content="一个克苏鲁与洛夫克拉夫特式怪奇文学作品编年史网页，包含时间线、扩展文献库、合作作者、首次发表刊物、全文外链、译名对照、作品关系网络与互动检索台。" />
   <meta name="theme-color" content="#031412" />
   <meta property="og:title" content="不可名状作品编年史" />
   <meta property="og:description" content="暗色档案馆风格的怪奇文学作品时间线、文献库与神话图谱。" />
   <meta property="og:type" content="website" />
   <link rel="icon" href="./assets/sigil.svg" type="image/svg+xml" />
   <link rel="preload" href="./assets/hero-cinematic.png" as="image" />
-  <link rel="stylesheet" href="./styles.css?v=20260603d" />
+  <link rel="stylesheet" href="./styles.css?v=20260604a" />
 </head>
 <body>
   <a class="skip-link" href="#library">跳到文献库</a>
@@ -45,6 +45,7 @@
           <a class="active" href="#timeline">编年史</a>
           <a href="#library">文献库</a>
           <a href="#mythos">神话体系</a>
+          <a href="#network">关系网络</a>
           <a href="#research">调查札记</a>
           <a href="#sources">来源</a>
         </nav>
@@ -65,7 +66,7 @@
         <ul class="archive-status" aria-label="档案馆状态">
           <li><strong data-work-count>35</strong><span>作品记录</span></li>
           <li><strong>1908–1936</strong><span>创作年代跨度</span></li>
-          <li><strong>3</strong><span>来源入口</span></li>
+          <li><strong data-source-count>6</strong><span>来源入口</span></li>
         </ul>
       </div>
 
@@ -101,7 +102,7 @@
       <div class="section-heading split-heading" data-reveal>
         <div>
           <h2 id="library-title">把作品目录变成可探索的阅读桌</h2>
-          <p>文献库改为数据驱动：按创作年代、主题、地点、神话节点和来源入口整理。卡片使用生成式缩略图，不再只靠纯样式模拟气氛。</p>
+          <p>文献库继续扩展：每条记录加入首次发表刊物、合作作者、全文外链、译名对照与关系边。卡片使用生成式缩略图，不再只靠纯样式模拟气氛。</p>
         </div>
         <a class="text-link" href="#search">打开检索台 <span>→</span></a>
       </div>
@@ -181,6 +182,35 @@
       </div>
     </section>
 
+    <section id="network" class="archive-section network-section" aria-labelledby="network-title" data-section="network">
+      <div class="section-kicker"><span></span> 作品关系网络</div>
+      <div class="section-heading split-heading" data-reveal>
+        <div>
+          <h2 id="network-title">把单篇作品重新接成一张暗金星图</h2>
+          <p>关系网络按梦境循环、深海神话、禁书档案、远古城市、米斯卡塔尼克线索、血统身份、科学与宇宙深时等类型组织。点击节点会显示作品、首次发表刊物和它连接到的文本。</p>
+        </div>
+        <a class="text-link" href="#library">回到文献卡片 <span>→</span></a>
+      </div>
+      <div class="relationship-lab" data-reveal>
+        <div class="network-visual" aria-label="作品关系网络互动图">
+          <img class="network-bg" src="./assets/relationship-observatory.png" alt="暗色观测室中的黄铜星图与文献墙背景" loading="lazy" />
+          <svg id="relationship-network" viewBox="0 0 1000 680" role="img" aria-labelledby="network-title"></svg>
+          <div class="network-detail" id="network-detail" aria-live="polite">
+            <p>当前节点</p>
+            <strong>克苏鲁的呼唤</strong>
+            <span>选择一条边或一个作品节点，查看它在编年史中的关系位置。</span>
+          </div>
+        </div>
+        <aside class="network-control" aria-label="关系网络筛选">
+          <p class="console-label">RELATION FILTER</p>
+          <div class="network-filter-row" id="network-filters">
+            <button type="button" class="network-chip active" data-relation="all">全部关系</button>
+          </div>
+          <div class="network-legend" id="network-edge-list"></div>
+        </aside>
+      </div>
+    </section>
+
     <section id="research" class="archive-section research-section" aria-labelledby="research-title" data-section="research">
       <div class="section-kicker"><span></span> 调查札记</div>
       <div class="section-heading split-heading" data-reveal>
@@ -221,8 +251,8 @@
           <h3>数据扩展范围</h3>
           <ul>
             <li>35 条作品记录，覆盖 1908–1936 的主要创作节点</li>
-            <li>每条记录含创作年、发表年、地点、母题、图谱节点与来源标签</li>
-            <li>保留 H. P. Lovecraft Archive、Project Gutenberg、Internet Archive 三类入口</li>
+            <li>每条记录含创作年、发表年、首次发表刊物、地点、母题、图谱节点与来源标签</li>
+            <li>新增合作作者、全文外链、译名对照、作品关系边与 6 类来源入口</li>
             <li>站内只写原创中文摘要，不收录长篇原文摘录</li>
           </ul>
         </div>
@@ -241,7 +271,7 @@
           <ul>
             <li>完整单页网站与响应式样式</li>
             <li>生成式背景、图谱、阅读桌和 35 张文献缩略图</li>
-            <li>数据驱动文献库、主题筛选、随机档案、图谱节点联动</li>
+            <li>数据驱动文献库、主题筛选、随机档案、图谱节点联动与作品关系网络</li>
             <li>README、MIT License、部署记录和 QA 脚本</li>
           </ul>
           <a class="primary-cta compact" href="#top">回到封面 <span>↑</span></a>
@@ -253,11 +283,11 @@
   <footer class="site-footer" aria-label="页脚">
     <p>这不是恐吓读者的怪物目录，而是一张关于文本、年代和宇宙尺度的索引。<span>ELDRITCH ARCHIVE</span></p>
     <nav aria-label="页脚导航">
-      <a href="#library">文献库</a><a href="#chronology">时间线</a><a href="#mythos">神话体系</a><a href="#research">检索台</a><a href="#sources">来源</a>
+      <a href="#library">文献库</a><a href="#chronology">时间线</a><a href="#mythos">神话体系</a><a href="#network">关系网络</a><a href="#research">检索台</a><a href="#sources">来源</a>
     </nav>
     <div class="socials" aria-label="符号装饰"><span>不可名状作品编年史</span><i>◉</i><i>ᚷ</i><i>⊙</i></div>
   </footer>
 
-  <script src="./script.js?v=20260603d" defer></script>
+  <script src="./script.js?v=20260604a" defer></script>
 </body>
 </html>

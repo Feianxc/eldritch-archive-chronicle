@@ -5,6 +5,7 @@ const topicButtons = [...document.querySelectorAll('.topic-chip')];
 const resultCount = document.querySelector('.result-count');
 const visibleCount = document.querySelector('[data-visible-count]');
 const workCountNodes = [...document.querySelectorAll('[data-work-count]')];
+const sourceCountNodes = [...document.querySelectorAll('[data-source-count]')];
 const randomButton = document.querySelector('.random-entry');
 const navLinks = [...document.querySelectorAll('.main-links a')];
 const workGrid = document.querySelector('#work-grid');
@@ -14,12 +15,20 @@ const heroTimeline = document.querySelector('#hero-timeline');
 const progressBar = document.querySelector('.site-progress span');
 const nodeButtons = [...document.querySelectorAll('.cosmic-map .node')];
 const nodeReadout = document.querySelector('#node-readout');
+const sourceList = document.querySelector('#source-list');
+const relationshipSvg = document.querySelector('#relationship-network');
+const networkFilters = document.querySelector('#network-filters');
+const networkDetail = document.querySelector('#network-detail');
+const networkEdgeList = document.querySelector('#network-edge-list');
 const motionOK = !window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
 let works = [];
 let sources = [];
+let network = { relationTypes: {}, edges: [] };
 let activeEra = 'all';
 let activeTopic = 'all';
+let activeRelation = 'all';
+let selectedNetworkWorkId = 'the-call-of-cthulhu';
 
 const eraLabels = {
   early: '早期恐惧',
@@ -68,6 +77,13 @@ function workHaystack(work) {
     ...(work.locations || []),
     ...(work.motifs || []),
     ...(work.atlasNodes || []),
+    ...(work.titleAliases?.zh || []),
+    ...(work.titleAliases?.en || []),
+    work.publication?.venue,
+    work.publication?.issue,
+    work.publication?.firstPublished,
+    ...(work.collaborators || []).map((item) => `${item.name} ${item.role}`),
+    ...(work.relationships || []).map((item) => `${item.type} ${item.label}`),
     work.summary,
     work.compositionYear,
     work.publicationYear
@@ -86,26 +102,60 @@ function sourceText(work) {
   }).join(' · ');
 }
 
+function publicationText(work) {
+  if (!work.publication) return `${work.publicationYear || '未知年份'} 发表`;
+  const issue = work.publication.issue ? `，${work.publication.issue}` : '';
+  return `${work.publication.firstPublished || work.publicationYear} · ${work.publication.venue || '未知刊物'}${issue}`;
+}
+
+function collaboratorText(work) {
+  if (!work.collaborators?.length) return 'H. P. Lovecraft';
+  return work.collaborators.map((item) => `${item.name}（${item.role}）`).join(' · ');
+}
+
+function aliasText(work) {
+  const aliases = [...new Set([...(work.titleAliases?.zh || []), ...(work.titleAliases?.en || [])])];
+  return aliases.filter((item) => item !== work.titleZh && item !== work.titleEn).slice(0, 4).join(' · ');
+}
+
+function workById(id) {
+  return works.find((work) => work.id === id);
+}
+
+function relationLabel(type) {
+  return network.relationTypes?.[type]?.label || type || '关系';
+}
+
 function renderLibrary() {
   if (!workGrid) return;
   const sorted = [...works].sort((a, b) => a.compositionYear - b.compositionYear || a.publicationYear - b.publicationYear);
-  workGrid.innerHTML = sorted.map((work, index) => `
+  workGrid.innerHTML = sorted.map((work, index) => {
+    const fullText = work.fullTextLinks?.[0];
+    const aliases = aliasText(work);
+    return `
     <article class="work-card" id="work-${esc(work.id)}" data-era="${esc(work.era)}" data-work-id="${esc(work.id)}" data-search="${esc(workHaystack(work))}" style="--i:${index % 12}">
       <div class="work-thumb-wrap">
         <img class="work-thumb" src="${thumbFor(work)}" alt="${esc(work.titleZh)} 的生成式档案缩略图" loading="lazy" />
         <img class="entry-seal" src="${sealByEra[work.era] || './assets/seal-star.png'}" alt="" aria-hidden="true" />
       </div>
-      <p class="card-meta">${work.compositionYear} 创作 · ${work.publicationYear} 发表 · ${esc(eraLabels[work.era] || work.era)}</p>
+      <p class="card-meta">${work.compositionYear} 创作 · ${esc(publicationText(work))}</p>
       <h3>${esc(work.titleZh)}</h3>
       <p class="latin-title">${esc(work.titleEn)}</p>
       <p>${esc(work.summary)}</p>
       <dl>
         <div><dt>地点</dt><dd>${esc((work.locations || []).slice(0, 2).join(' / '))}</dd></div>
         <div><dt>线索</dt><dd>${esc((work.motifs || []).slice(0, 2).join(' / '))}</dd></div>
+        <div><dt>作者/合作</dt><dd>${esc(collaboratorText(work))}</dd></div>
+        <div><dt>译名对照</dt><dd>${esc(aliases || '暂无常用异名')}</dd></div>
       </dl>
+      <div class="card-links">
+        ${fullText ? `<a href="${esc(fullText.url)}" target="_blank" rel="noreferrer">阅读全文外链</a>` : ''}
+        <button type="button" data-network-jump="${esc(work.id)}">查看关系</button>
+      </div>
       <div class="card-tags" aria-label="主题标签">${(work.themes || []).slice(0, 3).map((tag) => `<button type="button" data-topic-jump="${esc(tag)}">${esc(tag)}</button>`).join('')}</div>
     </article>
-  `).join('');
+  `;
+  }).join('');
 }
 
 function renderCases() {
@@ -117,7 +167,7 @@ function renderCases() {
       <div>
         <h3>${esc(work.titleZh)} <em>${esc(work.titleEn)}</em></h3>
         <p>${esc(work.summary)}</p>
-        <small>${esc((work.themes || []).join(' · '))} ｜ ${esc(sourceText(work))}</small>
+        <small>${esc((work.themes || []).join(' · '))} ｜ ${esc(publicationText(work))} ｜ ${esc(sourceText(work))}</small>
       </div>
       <a href="#work-${esc(work.id)}" data-locate="${esc(work.id)}">定位文献</a>
     </article>
@@ -151,15 +201,161 @@ function renderTimeline() {
   }
 }
 
+function renderSourceList() {
+  if (!sourceList) return;
+  sourceList.innerHTML = sources.map((source) => `
+    <li><a href="${esc(source.url)}" target="_blank" rel="noreferrer">${esc(source.label)}</a><span>${esc(source.role || '文献数据来源')}</span></li>
+  `).join('');
+}
+
+function networkNodesForEdges(edges) {
+  const ids = new Set();
+  edges.forEach((edge) => {
+    ids.add(edge.source);
+    ids.add(edge.target);
+  });
+  return [...ids].map((id) => workById(id)).filter(Boolean);
+}
+
+function networkPosition(work, index, total) {
+  const family = work.era || 'middle';
+  const centers = {
+    early: [250, 250],
+    middle: [405, 455],
+    dreamlands: [260, 515],
+    cthulhu: [650, 250],
+    late: [735, 475]
+  };
+  const [cx, cy] = centers[family] || [500, 340];
+  const angle = (index / Math.max(1, total)) * Math.PI * 2 + (work.compositionYear % 11) * 0.12;
+  const radius = family === 'cthulhu' ? 140 : 115;
+  return {
+    x: Math.max(70, Math.min(930, cx + Math.cos(angle) * radius)),
+    y: Math.max(70, Math.min(610, cy + Math.sin(angle) * radius))
+  };
+}
+
+function updateNetworkDetail(workId) {
+  selectedNetworkWorkId = workId;
+  const work = workById(workId);
+  if (!work || !networkDetail) return;
+  const related = (work.relationships || [])
+    .slice(0, 5)
+    .map((edge) => {
+      const target = workById(edge.target);
+      return target ? `${target.titleZh}（${relationLabel(edge.type)}）` : relationLabel(edge.type);
+    })
+    .join('、');
+  networkDetail.innerHTML = `
+    <p>${esc(work.compositionYear)} 创作 · ${esc(publicationText(work))}</p>
+    <strong>${esc(work.titleZh)}</strong>
+    <span>${esc(work.titleEn)}${related ? ` ｜ 连接：${esc(related)}` : ''}</span>
+    <button type="button" data-locate="${esc(work.id)}">定位文献卡片</button>
+  `;
+  networkDetail.querySelector('[data-locate]')?.addEventListener('click', (event) => {
+    event.preventDefault();
+    locateWork(work.id);
+  });
+}
+
+function renderNetworkFilters() {
+  if (!networkFilters) return;
+  const relationTypes = network.relationTypes || {};
+  networkFilters.innerHTML = [
+    '<button type="button" class="network-chip active" data-relation="all">全部关系</button>',
+    ...Object.entries(relationTypes).map(([type, info]) => `<button type="button" class="network-chip" data-relation="${esc(type)}">${esc(info.label || type)}</button>`)
+  ].join('');
+  networkFilters.querySelectorAll('[data-relation]').forEach((button) => {
+    button.addEventListener('click', () => {
+      activeRelation = button.dataset.relation || 'all';
+      networkFilters.querySelectorAll('[data-relation]').forEach((item) => {
+        item.classList.toggle('active', item === button);
+      });
+      renderNetwork();
+    });
+  });
+}
+
+function renderNetwork() {
+  if (!relationshipSvg) return;
+  const edges = (network.edges || []).filter((edge) => activeRelation === 'all' || edge.type === activeRelation);
+  const nodes = networkNodesForEdges(edges);
+  const positions = new Map(nodes.map((work, index) => [work.id, networkPosition(work, index, nodes.length)]));
+  const relationTypes = network.relationTypes || {};
+
+  relationshipSvg.innerHTML = `
+    <defs>
+      <filter id="nodeGlow"><feGaussianBlur stdDeviation="4" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+      <linearGradient id="edgeGlow" x1="0" x2="1"><stop offset="0" stop-color="rgba(212,174,91,.28)"/><stop offset="1" stop-color="rgba(105,204,183,.6)"/></linearGradient>
+    </defs>
+    <g class="network-edges">
+      ${edges.map((edge, index) => {
+        const a = positions.get(edge.source);
+        const b = positions.get(edge.target);
+        if (!a || !b) return '';
+        const selected = edge.source === selectedNetworkWorkId || edge.target === selectedNetworkWorkId;
+        return `<path class="network-edge ${selected ? 'is-selected' : ''}" data-edge="${index}" data-type="${esc(edge.type)}" d="M ${a.x.toFixed(1)} ${a.y.toFixed(1)} C ${((a.x + b.x) / 2).toFixed(1)} ${(a.y - 90).toFixed(1)}, ${((a.x + b.x) / 2).toFixed(1)} ${(b.y + 90).toFixed(1)}, ${b.x.toFixed(1)} ${b.y.toFixed(1)}" />`;
+      }).join('')}
+    </g>
+    <g class="network-nodes">
+      ${nodes.map((work) => {
+        const p = positions.get(work.id);
+        const selected = work.id === selectedNetworkWorkId;
+        const firstDegree = edges.some((edge) =>
+          (edge.source === selectedNetworkWorkId && edge.target === work.id) ||
+          (edge.target === selectedNetworkWorkId && edge.source === work.id)
+        );
+        const showLabel = selected || firstDegree || nodes.length <= 12;
+        const short = work.titleZh.length > 6 ? `${work.titleZh.slice(0, 5)}…` : work.titleZh;
+        return `<g class="network-node ${selected ? 'is-selected' : ''} ${showLabel ? 'show-label' : ''}" data-network-node="${esc(work.id)}" transform="translate(${p.x.toFixed(1)} ${p.y.toFixed(1)})">
+          <circle r="${selected ? 22 : 16}"></circle>
+          <text y="${selected ? -32 : -26}">${esc(short)}</text>
+        </g>`;
+      }).join('')}
+    </g>
+  `;
+
+  relationshipSvg.querySelectorAll('[data-network-node]').forEach((node) => {
+    node.addEventListener('click', () => {
+      updateNetworkDetail(node.getAttribute('data-network-node'));
+      renderNetwork();
+    });
+  });
+
+  if (networkEdgeList) {
+    networkEdgeList.innerHTML = edges.slice(0, 12).map((edge) => {
+      const source = workById(edge.source);
+      const target = workById(edge.target);
+      const info = relationTypes[edge.type] || {};
+      return `<button type="button" data-edge-locate="${esc(edge.source)}" data-edge-target="${esc(edge.target)}">
+        <strong>${esc(info.label || edge.type)}</strong>
+        <span>${esc(source?.titleZh || edge.source)} → ${esc(target?.titleZh || edge.target)}</span>
+        <em>${esc(edge.label)}</em>
+      </button>`;
+    }).join('');
+    networkEdgeList.querySelectorAll('[data-edge-locate]').forEach((button) => {
+      button.addEventListener('click', () => {
+        updateNetworkDetail(button.dataset.edgeLocate);
+        renderNetwork();
+      });
+    });
+  }
+  updateNetworkDetail(selectedNetworkWorkId);
+}
+
 function renderCounts() {
   workCountNodes.forEach((node) => { node.textContent = String(works.length); });
+  sourceCountNodes.forEach((node) => { node.textContent = String(sources.length); });
 }
 
 function renderAll() {
   renderCounts();
+  renderSourceList();
   renderLibrary();
   renderCases();
   renderTimeline();
+  renderNetworkFilters();
+  renderNetwork();
   bindDynamicInteractions();
   applyFilters();
   observeReveals();
@@ -242,6 +438,15 @@ function bindDynamicInteractions() {
     });
   });
 
+  document.querySelectorAll('[data-network-jump]').forEach((button) => {
+    button.addEventListener('click', (event) => {
+      event.stopPropagation();
+      updateNetworkDetail(button.dataset.networkJump);
+      renderNetwork();
+      document.querySelector('#network')?.scrollIntoView({ behavior: motionOK ? 'smooth' : 'auto' });
+    });
+  });
+
   if (motionOK) {
     document.querySelectorAll('.work-card').forEach((card) => {
       card.addEventListener('pointermove', (event) => {
@@ -306,7 +511,7 @@ const sectionObserver = new IntersectionObserver((entries) => {
   });
 }, { rootMargin: '-35% 0px -45% 0px', threshold: [0.1, 0.35, 0.6] });
 
-['top', 'timeline', 'library', 'mythos', 'research', 'sources', 'about'].forEach((id) => {
+['top', 'timeline', 'library', 'mythos', 'network', 'research', 'sources', 'about'].forEach((id) => {
   const section = document.getElementById(id);
   if (section) sectionObserver.observe(section);
 });
@@ -399,6 +604,7 @@ async function boot() {
     const payload = await response.json();
     works = payload.works || [];
     sources = payload.meta?.sources || [];
+    network = payload.network || { relationTypes: {}, edges: [] };
     renderAll();
   } catch (error) {
     console.error('文献数据读取失败', error);

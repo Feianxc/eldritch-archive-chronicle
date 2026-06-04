@@ -8,6 +8,7 @@ const assetRequired = [
   'assets/hero-cinematic.png',
   'assets/atlas-wall.png',
   'assets/reading-desk.png',
+  'assets/relationship-observatory.png',
   'assets/parchment.png',
   'assets/seal-book.png',
   'assets/seal-mountain.png',
@@ -61,7 +62,7 @@ for (const target of cssRefs) {
 }
 
 const requiredSelectors = [
-  'archive-stage', 'library-console', 'library-grid', 'deep-timeline', 'cosmic-map',
+  'archive-stage', 'library-console', 'library-grid', 'deep-timeline', 'cosmic-map', 'relationship-lab',
   'search-panel', 'case-list', 'site-progress', 'abyss-canvas', 'source-panel'
 ];
 for (const selector of requiredSelectors) {
@@ -72,14 +73,18 @@ if (!script.includes('fetch(DATA_URL)')) fail('Data-driven works fetch missing')
 if (!script.includes('applyFilters')) fail('Search/filter interaction function missing');
 if (!script.includes('IntersectionObserver')) warn('Reveal/navigation observer missing');
 if (!script.includes('startCanvas')) warn('Ambient canvas motion missing');
-if (!index.includes('styles.css?v=20260603d') || !index.includes('script.js?v=20260603d')) fail('Cache-busted CSS/JS version not updated');
+if (!index.includes('styles.css?v=20260604a') || !index.includes('script.js?v=20260604a')) fail('Cache-busted CSS/JS version not updated');
 
 if (!Array.isArray(data.works) || data.works.length < 30) fail('Expected at least 30 works in data/works.json');
-if (!Array.isArray(data.meta?.sources) || data.meta.sources.length < 3) fail('Expected at least three literature/data sources');
+if (!Array.isArray(data.meta?.sources) || data.meta.sources.length < 6) fail('Expected at least six literature/data sources');
+if (!Array.isArray(data.network?.edges) || data.network.edges.length < 25) fail('Expected curated relationship network edges');
 for (const work of data.works || []) {
   for (const key of ['id', 'compositionYear', 'publicationYear', 'titleZh', 'titleEn', 'summary']) {
     if (!work[key]) fail(`Work ${work.id || '(missing id)'} missing ${key}`);
   }
+  if (!work.publication?.venue) fail(`Work ${work.id || '(missing id)'} missing publication venue`);
+  if (!work.fullTextLinks?.length) fail(`Work ${work.id || '(missing id)'} missing fullTextLinks`);
+  if (!work.titleAliases?.zh?.length || !work.titleAliases?.en?.length) fail(`Work ${work.id || '(missing id)'} missing titleAliases`);
   const thumb = `assets/work-thumbs/${work.id}.png`;
   if (!relExists(thumb)) fail(`Missing generated thumbnail: ${thumb}`);
   else if (statSync(relPath(thumb)).size < 20000) warn(`Thumbnail may be too small: ${thumb}`);

@@ -1,7 +1,7 @@
 {
   "meta": {
-    "schemaVersion": "2026.06.upgrade",
-    "updatedAt": "2026-06-03",
+    "schemaVersion": "2026.06.relationship-network",
+    "updatedAt": "2026-06-04",
     "rightsNote": "站点只收录作品元数据、中文摘要与研究索引，不收录长篇原文摘录。公开文本链接仅在来源本身提供时显示。",
     "sources": [
       {
@@ -21,6 +21,24 @@
         "label": "Internet Archive",
         "url": "https://archive.org/search?query=creator%3A%22Lovecraft%2C+H.+P.+%28Howard+Phillips%29%2C+1890-1937%22",
         "role": "历史期刊、音频与馆藏检索入口"
+      },
+      {
+        "id": "hpl-publish",
+        "label": "The H. P. Lovecraft Archive: Publication Order",
+        "url": "https://www.hplovecraft.com/writings/fiction/publish.aspx",
+        "role": "首次发表日期、期刊/书籍与卷期校核"
+      },
+      {
+        "id": "hpl-texts",
+        "label": "The H. P. Lovecraft Archive: Electronic Texts",
+        "url": "https://www.hplovecraft.com/writings/texts/",
+        "role": "逐篇英文全文外链入口"
+      },
+      {
+        "id": "wikisource",
+        "label": "Wikisource: H. P. Lovecraft",
+        "url": "https://en.wikisource.org/wiki/Author:H._P._Lovecraft",
+        "role": "公共领域文本交叉入口，按该站实际收录为准"
       }
     ]
   },
@@ -33,13 +51,60 @@
       "titleEn": "The Alchemist",
       "author": "H. P. Lovecraft",
       "era": "early",
-      "themes": ["家族诅咒", "哥特", "复仇"],
-      "locations": ["法国古堡"],
-      "motifs": ["祖传秘密", "地下室", "长寿传说"],
+      "themes": [
+        "家族诅咒",
+        "哥特",
+        "复仇"
+      ],
+      "locations": [
+        "法国古堡"
+      ],
+      "motifs": [
+        "祖传秘密",
+        "地下室",
+        "长寿传说"
+      ],
       "summary": "早期哥特式故事，围绕家族诅咒和被延宕的复仇展开，已经能看到档案、血统和密室这些后来反复出现的结构。",
-      "atlasNodes": ["血统", "古堡"],
-      "sourceRefs": ["hpl-archive"],
-      "textStatus": "metadata-only"
+      "atlasNodes": [
+        "血统",
+        "古堡"
+      ],
+      "sourceRefs": [
+        "hpl-archive",
+        "hpl-publish",
+        "hpl-texts"
+      ],
+      "textStatus": "metadata-only",
+      "publication": {
+        "firstPublished": "1916, November",
+        "publicationYear": 1916,
+        "venue": "The United Amateur",
+        "issue": "16, No. 4",
+        "type": "periodical",
+        "source": "The H. P. Lovecraft Archive publication order"
+      },
+      "links": {
+        "hplText": "https://www.hplovecraft.com/writings/texts/fiction/a.aspx",
+        "hplPublication": "https://www.hplovecraft.com/writings/fiction/a.aspx"
+      },
+      "fullTextLinks": [
+        {
+          "label": "H. P. Lovecraft Archive",
+          "url": "https://www.hplovecraft.com/writings/texts/fiction/a.aspx",
+          "language": "en"
+        }
+      ],
+      "titleAliases": {
+        "zh": [
+          "炼金术士",
+          "炼金师"
+        ],
+        "en": [
+          "The Alchemist"
+        ]
+      },
+      "collaborators": [],
+      "relationships": []
     },
     {
       "id": "the-tomb",
@@ -49,13 +114,68 @@
       "titleEn": "The Tomb",
       "author": "H. P. Lovecraft",
       "era": "early",
-      "themes": ["坟墓", "身份", "梦游"],
-      "locations": ["新英格兰墓园"],
-      "motifs": ["封闭墓室", "古老家族", "自我怀疑"],
+      "themes": [
+        "坟墓",
+        "身份",
+        "梦游"
+      ],
+      "locations": [
+        "新英格兰墓园"
+      ],
+      "motifs": [
+        "封闭墓室",
+        "古老家族",
+        "自我怀疑"
+      ],
       "summary": "叙述者被一座旧墓吸引，身份和记忆在家族遗迹前逐渐失稳，是早期梦境与血统主题的入口。",
-      "atlasNodes": ["血统", "梦境"],
-      "sourceRefs": ["hpl-archive"],
-      "textStatus": "metadata-only"
+      "atlasNodes": [
+        "血统",
+        "梦境"
+      ],
+      "sourceRefs": [
+        "hpl-archive",
+        "hpl-publish",
+        "hpl-texts"
+      ],
+      "textStatus": "metadata-only",
+      "publication": {
+        "firstPublished": "1922, March",
+        "publicationYear": 1922,
+        "venue": "The Vagrant",
+        "issue": "No. 14",
+        "type": "periodical",
+        "source": "The H. P. Lovecraft Archive publication order"
+      },
+      "links": {
+        "hplText": "https://www.hplovecraft.com/writings/texts/fiction/t.aspx",
+        "hplPublication": "https://www.hplovecraft.com/writings/fiction/t.aspx"
+      },
+      "fullTextLinks": [
+        {
+          "label": "H. P. Lovecraft Archive",
+          "url": "https://www.hplovecraft.com/writings/texts/fiction/t.aspx",
+          "language": "en"
+        }
+      ],
+      "titleAliases": {
+        "zh": [
+          "墓地",
+          "古墓",
+          "墓穴"
+        ],
+        "en": [
+          "The Tomb"
+        ]
+      },
+      "collaborators": [],
+      "relationships": [
+        {
+          "target": "the-statement-of-randolph-carter",
+          "type": "lineage",
+          "label": "墓穴叙事与身份失稳",
+          "direction": "out"
+        }
+      ]
     },
     {
       "id": "dagon",
@@ -65,13 +185,75 @@
       "titleEn": "Dagon",
       "author": "H. P. Lovecraft",
       "era": "early",
-      "themes": ["深海", "证词", "远古崇拜"],
-      "locations": ["南太平洋", "漂浮海床"],
-      "motifs": ["幸存者手记", "巨型碑石", "海底神祇"],
+      "themes": [
+        "深海",
+        "证词",
+        "远古崇拜"
+      ],
+      "locations": [
+        "南太平洋",
+        "漂浮海床"
+      ],
+      "motifs": [
+        "幸存者手记",
+        "巨型碑石",
+        "海底神祇"
+      ],
       "summary": "一名海上幸存者记录泥黑海床、陌生碑文与巨物显形。它建立了深海恐惧和不可靠证词的基础语法。",
-      "atlasNodes": ["深海", "达贡"],
-      "sourceRefs": ["hpl-archive", "gutenberg"],
-      "textStatus": "public-domain-link"
+      "atlasNodes": [
+        "深海",
+        "达贡"
+      ],
+      "sourceRefs": [
+        "hpl-archive",
+        "gutenberg",
+        "hpl-publish",
+        "hpl-texts"
+      ],
+      "textStatus": "public-domain-link",
+      "publication": {
+        "firstPublished": "1919, November",
+        "publicationYear": 1919,
+        "venue": "The Vagrant",
+        "issue": "No. 11",
+        "type": "periodical",
+        "source": "The H. P. Lovecraft Archive publication order"
+      },
+      "links": {
+        "hplText": "https://www.hplovecraft.com/writings/texts/fiction/d.aspx",
+        "hplPublication": "https://www.hplovecraft.com/writings/fiction/d.aspx"
+      },
+      "fullTextLinks": [
+        {
+          "label": "H. P. Lovecraft Archive",
+          "url": "https://www.hplovecraft.com/writings/texts/fiction/d.aspx",
+          "language": "en"
+        }
+      ],
+      "titleAliases": {
+        "zh": [
+          "达贡",
+          "大衮"
+        ],
+        "en": [
+          "Dagon"
+        ]
+      },
+      "collaborators": [],
+      "relationships": [
+        {
+          "target": "the-call-of-cthulhu",
+          "type": "deep-sea",
+          "label": "深海证词通向旧日支配者",
+          "direction": "out"
+        },
+        {
+          "target": "the-shadow-over-innsmouth",
+          "type": "deep-sea",
+          "label": "达贡崇拜与海岸共同体",
+          "direction": "out"
+        }
+      ]
     },
     {
       "id": "polaris",
@@ -81,13 +263,68 @@
       "titleEn": "Polaris",
       "author": "H. P. Lovecraft",
       "era": "early",
-      "themes": ["梦境", "古城", "宿命"],
-      "locations": ["洛马尔", "梦境边疆"],
-      "motifs": ["星光召唤", "城墙守望", "错位身份"],
+      "themes": [
+        "梦境",
+        "古城",
+        "宿命"
+      ],
+      "locations": [
+        "洛马尔",
+        "梦境边疆"
+      ],
+      "motifs": [
+        "星光召唤",
+        "城墙守望",
+        "错位身份"
+      ],
       "summary": "梦中的古城与现实睡眠交错，北极星成为召唤和审判的视觉锚点。",
-      "atlasNodes": ["梦境", "古城"],
-      "sourceRefs": ["hpl-archive", "gutenberg"],
-      "textStatus": "public-domain-link"
+      "atlasNodes": [
+        "梦境",
+        "古城"
+      ],
+      "sourceRefs": [
+        "hpl-archive",
+        "gutenberg",
+        "hpl-publish",
+        "hpl-texts"
+      ],
+      "textStatus": "public-domain-link",
+      "publication": {
+        "firstPublished": "1920, December",
+        "publicationYear": 1920,
+        "venue": "The Philosopher",
+        "issue": "1, No. 1",
+        "type": "periodical",
+        "source": "The H. P. Lovecraft Archive publication order"
+      },
+      "links": {
+        "hplText": "https://www.hplovecraft.com/writings/texts/fiction/p.aspx",
+        "hplPublication": "https://www.hplovecraft.com/writings/fiction/p.aspx"
+      },
+      "fullTextLinks": [
+        {
+          "label": "H. P. Lovecraft Archive",
+          "url": "https://www.hplovecraft.com/writings/texts/fiction/p.aspx",
+          "language": "en"
+        }
+      ],
+      "titleAliases": {
+        "zh": [
+          "北极星"
+        ],
+        "en": [
+          "Polaris"
+        ]
+      },
+      "collaborators": [],
+      "relationships": [
+        {
+          "target": "the-dream-quest-of-unknown-kadath",
+          "type": "dream-cycle",
+          "label": "梦境地理的早期坐标",
+          "direction": "out"
+        }
+      ]
     },
     {
       "id": "beyond-the-wall-of-sleep",
@@ -97,13 +334,62 @@
       "titleEn": "Beyond the Wall of Sleep",
       "author": "H. P. Lovecraft",
       "era": "early",
-      "themes": ["梦境", "宇宙意识", "实验"],
-      "locations": ["精神病院", "星际空间"],
-      "motifs": ["脑波装置", "双重意识", "星体仇敌"],
+      "themes": [
+        "梦境",
+        "宇宙意识",
+        "实验"
+      ],
+      "locations": [
+        "精神病院",
+        "星际空间"
+      ],
+      "motifs": [
+        "脑波装置",
+        "双重意识",
+        "星体仇敌"
+      ],
       "summary": "医疗观察和宇宙意识相互套叠，把科学记录变成通向非人尺度的通道。",
-      "atlasNodes": ["梦境", "宇宙意识"],
-      "sourceRefs": ["hpl-archive", "gutenberg"],
-      "textStatus": "public-domain-link"
+      "atlasNodes": [
+        "梦境",
+        "宇宙意识"
+      ],
+      "sourceRefs": [
+        "hpl-archive",
+        "gutenberg",
+        "hpl-publish",
+        "hpl-texts"
+      ],
+      "textStatus": "public-domain-link",
+      "publication": {
+        "firstPublished": "1919, October",
+        "publicationYear": 1919,
+        "venue": "Pine Cones",
+        "issue": "1, No. 6",
+        "type": "periodical",
+        "source": "The H. P. Lovecraft Archive publication order"
+      },
+      "links": {
+        "hplText": "https://www.hplovecraft.com/writings/texts/fiction/bws.aspx",
+        "hplPublication": "https://www.hplovecraft.com/writings/fiction/bws.aspx"
+      },
+      "fullTextLinks": [
+        {
+          "label": "H. P. Lovecraft Archive",
+          "url": "https://www.hplovecraft.com/writings/texts/fiction/bws.aspx",
+          "language": "en"
+        }
+      ],
+      "titleAliases": {
+        "zh": [
+          "睡墙之外",
+          "睡眠之墙外"
+        ],
+        "en": [
+          "Beyond the Wall of Sleep"
+        ]
+      },
+      "collaborators": [],
+      "relationships": []
     },
     {
       "id": "the-white-ship",
@@ -113,13 +399,69 @@
       "titleEn": "The White Ship",
       "author": "H. P. Lovecraft",
       "era": "early",
-      "themes": ["梦境", "航行", "诱惑"],
-      "locations": ["梦境海岸", "萨拉纳斯"],
-      "motifs": ["灯塔", "白船", "不可抵达之地"],
+      "themes": [
+        "梦境",
+        "航行",
+        "诱惑"
+      ],
+      "locations": [
+        "梦境海岸",
+        "萨拉纳斯"
+      ],
+      "motifs": [
+        "灯塔",
+        "白船",
+        "不可抵达之地"
+      ],
       "summary": "灯塔守望者踏上白船，梦境地理展开为带有寓言感的航海图。",
-      "atlasNodes": ["梦境", "海岸"],
-      "sourceRefs": ["hpl-archive", "gutenberg"],
-      "textStatus": "public-domain-link"
+      "atlasNodes": [
+        "梦境",
+        "海岸"
+      ],
+      "sourceRefs": [
+        "hpl-archive",
+        "gutenberg",
+        "hpl-publish",
+        "hpl-texts"
+      ],
+      "textStatus": "public-domain-link",
+      "publication": {
+        "firstPublished": "1919, November",
+        "publicationYear": 1919,
+        "venue": "The United Amateur",
+        "issue": "19, No. 2",
+        "type": "periodical",
+        "source": "The H. P. Lovecraft Archive publication order"
+      },
+      "links": {
+        "hplText": "https://www.hplovecraft.com/writings/texts/fiction/ws.aspx",
+        "hplPublication": "https://www.hplovecraft.com/writings/fiction/ws.aspx"
+      },
+      "fullTextLinks": [
+        {
+          "label": "H. P. Lovecraft Archive",
+          "url": "https://www.hplovecraft.com/writings/texts/fiction/ws.aspx",
+          "language": "en"
+        }
+      ],
+      "titleAliases": {
+        "zh": [
+          "白船",
+          "白色之船"
+        ],
+        "en": [
+          "The White Ship"
+        ]
+      },
+      "collaborators": [],
+      "relationships": [
+        {
+          "target": "the-dream-quest-of-unknown-kadath",
+          "type": "dream-cycle",
+          "label": "梦境航海扩展为完整国度",
+          "direction": "out"
+        }
+      ]
     },
     {
       "id": "the-statement-of-randolph-carter",
@@ -129,13 +471,69 @@
       "titleEn": "The Statement of Randolph Carter",
       "author": "H. P. Lovecraft",
       "era": "early",
-      "themes": ["证词", "地下", "失踪"],
-      "locations": ["佛罗里达沼泽", "古墓"],
-      "motifs": ["警局陈述", "电话线", "墓穴入口"],
+      "themes": [
+        "证词",
+        "地下",
+        "失踪"
+      ],
+      "locations": [
+        "佛罗里达沼泽",
+        "古墓"
+      ],
+      "motifs": [
+        "警局陈述",
+        "电话线",
+        "墓穴入口"
+      ],
       "summary": "以审讯陈述的形式呈现一次墓穴探索，叙述者只能听见同伴在地下逐渐接近未知。",
-      "atlasNodes": ["证词", "地下"],
-      "sourceRefs": ["hpl-archive", "gutenberg"],
-      "textStatus": "public-domain-link"
+      "atlasNodes": [
+        "证词",
+        "地下"
+      ],
+      "sourceRefs": [
+        "hpl-archive",
+        "gutenberg",
+        "hpl-publish",
+        "hpl-texts"
+      ],
+      "textStatus": "public-domain-link",
+      "publication": {
+        "firstPublished": "1920, May",
+        "publicationYear": 1920,
+        "venue": "The Vagrant",
+        "issue": "No. 13",
+        "type": "periodical",
+        "source": "The H. P. Lovecraft Archive publication order"
+      },
+      "links": {
+        "hplText": "https://www.hplovecraft.com/writings/texts/fiction/src.aspx",
+        "hplPublication": "https://www.hplovecraft.com/writings/fiction/src.aspx"
+      },
+      "fullTextLinks": [
+        {
+          "label": "H. P. Lovecraft Archive",
+          "url": "https://www.hplovecraft.com/writings/texts/fiction/src.aspx",
+          "language": "en"
+        }
+      ],
+      "titleAliases": {
+        "zh": [
+          "伦道夫·卡特的陈述",
+          "兰道夫·卡特的证词"
+        ],
+        "en": [
+          "The Statement of Randolph Carter"
+        ]
+      },
+      "collaborators": [],
+      "relationships": [
+        {
+          "target": "the-tomb",
+          "type": "lineage",
+          "label": "墓穴叙事与身份失稳",
+          "direction": "in"
+        }
+      ]
     },
     {
       "id": "the-doom-that-came-to-sarnath",
@@ -145,13 +543,69 @@
       "titleEn": "The Doom That Came to Sarnath",
       "author": "H. P. Lovecraft",
       "era": "early",
-      "themes": ["梦境", "城市", "报应"],
-      "locations": ["萨尔纳斯", "伊布"],
-      "motifs": ["被毁城市", "古老神像", "湖泊"],
+      "themes": [
+        "梦境",
+        "城市",
+        "报应"
+      ],
+      "locations": [
+        "萨尔纳斯",
+        "伊布"
+      ],
+      "motifs": [
+        "被毁城市",
+        "古老神像",
+        "湖泊"
+      ],
       "summary": "一座繁荣城市建立在被毁灭的前文明之上，历史债务在千年之后返回。",
-      "atlasNodes": ["梦境", "古城"],
-      "sourceRefs": ["hpl-archive", "gutenberg"],
-      "textStatus": "public-domain-link"
+      "atlasNodes": [
+        "梦境",
+        "古城"
+      ],
+      "sourceRefs": [
+        "hpl-archive",
+        "gutenberg",
+        "hpl-publish",
+        "hpl-texts"
+      ],
+      "textStatus": "public-domain-link",
+      "publication": {
+        "firstPublished": "1920, June",
+        "publicationYear": 1920,
+        "venue": "The Scot",
+        "issue": "No. 44",
+        "type": "periodical",
+        "source": "The H. P. Lovecraft Archive publication order"
+      },
+      "links": {
+        "hplText": "https://www.hplovecraft.com/writings/texts/fiction/ds.aspx",
+        "hplPublication": "https://www.hplovecraft.com/writings/fiction/ds.aspx"
+      },
+      "fullTextLinks": [
+        {
+          "label": "H. P. Lovecraft Archive",
+          "url": "https://www.hplovecraft.com/writings/texts/fiction/ds.aspx",
+          "language": "en"
+        }
+      ],
+      "titleAliases": {
+        "zh": [
+          "降临萨尔纳斯的厄运",
+          "萨尔纳斯的毁灭"
+        ],
+        "en": [
+          "The Doom That Came to Sarnath"
+        ]
+      },
+      "collaborators": [],
+      "relationships": [
+        {
+          "target": "the-cats-of-ulthar",
+          "type": "dream-cycle",
+          "label": "梦境城镇与寓言法则",
+          "direction": "out"
+        }
+      ]
     },
     {
       "id": "the-cats-of-ulthar",
@@ -161,13 +615,68 @@
       "titleEn": "The Cats of Ulthar",
       "author": "H. P. Lovecraft",
       "era": "dreamlands",
-      "themes": ["梦境", "民间传说", "禁令"],
-      "locations": ["乌撒"],
-      "motifs": ["城镇禁令", "商旅儿童", "群猫"],
+      "themes": [
+        "梦境",
+        "民间传说",
+        "禁令"
+      ],
+      "locations": [
+        "乌撒"
+      ],
+      "motifs": [
+        "城镇禁令",
+        "商旅儿童",
+        "群猫"
+      ],
       "summary": "梦境城镇中一条保护猫的法律形成，故事像民间传说一样短促而坚硬。",
-      "atlasNodes": ["梦境", "乌撒"],
-      "sourceRefs": ["hpl-archive", "gutenberg"],
-      "textStatus": "public-domain-link"
+      "atlasNodes": [
+        "梦境",
+        "乌撒"
+      ],
+      "sourceRefs": [
+        "hpl-archive",
+        "gutenberg",
+        "hpl-publish",
+        "hpl-texts"
+      ],
+      "textStatus": "public-domain-link",
+      "publication": {
+        "firstPublished": "1920, November",
+        "publicationYear": 1920,
+        "venue": "The Tryout",
+        "issue": "6, No. 11",
+        "type": "periodical",
+        "source": "The H. P. Lovecraft Archive publication order"
+      },
+      "links": {
+        "hplText": "https://www.hplovecraft.com/writings/texts/fiction/cu.aspx",
+        "hplPublication": "https://www.hplovecraft.com/writings/fiction/cu.aspx"
+      },
+      "fullTextLinks": [
+        {
+          "label": "H. P. Lovecraft Archive",
+          "url": "https://www.hplovecraft.com/writings/texts/fiction/cu.aspx",
+          "language": "en"
+        }
+      ],
+      "titleAliases": {
+        "zh": [
+          "乌撒的猫",
+          "乌尔塔尔的猫"
+        ],
+        "en": [
+          "The Cats of Ulthar"
+        ]
+      },
+      "collaborators": [],
+      "relationships": [
+        {
+          "target": "the-doom-that-came-to-sarnath",
+          "type": "dream-cycle",
+          "label": "梦境城镇与寓言法则",
+          "direction": "in"
+        }
+      ]
     },
     {
       "id": "the-temple",
@@ -177,13 +686,68 @@
       "titleEn": "The Temple",
       "author": "H. P. Lovecraft",
       "era": "middle",
-      "themes": ["深海", "军舰", "古典遗迹"],
-      "locations": ["大西洋海底", "潜艇"],
-      "motifs": ["军官日志", "海底建筑", "古代雕像"],
+      "themes": [
+        "深海",
+        "军舰",
+        "古典遗迹"
+      ],
+      "locations": [
+        "大西洋海底",
+        "潜艇"
+      ],
+      "motifs": [
+        "军官日志",
+        "海底建筑",
+        "古代雕像"
+      ],
       "summary": "潜艇日志把战争理性带入海底遗迹，秩序在压力和幻觉中慢慢瓦解。",
-      "atlasNodes": ["深海", "神殿"],
-      "sourceRefs": ["hpl-archive"],
-      "textStatus": "metadata-only"
+      "atlasNodes": [
+        "深海",
+        "神殿"
+      ],
+      "sourceRefs": [
+        "hpl-archive",
+        "hpl-publish",
+        "hpl-texts"
+      ],
+      "textStatus": "metadata-only",
+      "publication": {
+        "firstPublished": "1925, September",
+        "publicationYear": 1925,
+        "venue": "Weird Tales",
+        "issue": "6, No. 3",
+        "type": "periodical",
+        "source": "The H. P. Lovecraft Archive publication order"
+      },
+      "links": {
+        "hplText": "https://www.hplovecraft.com/writings/texts/fiction/te.aspx",
+        "hplPublication": "https://www.hplovecraft.com/writings/fiction/te.aspx"
+      },
+      "fullTextLinks": [
+        {
+          "label": "H. P. Lovecraft Archive",
+          "url": "https://www.hplovecraft.com/writings/texts/fiction/te.aspx",
+          "language": "en"
+        }
+      ],
+      "titleAliases": {
+        "zh": [
+          "神殿",
+          "神庙"
+        ],
+        "en": [
+          "The Temple"
+        ]
+      },
+      "collaborators": [],
+      "relationships": [
+        {
+          "target": "at-the-mountains-of-madness",
+          "type": "ancient-city",
+          "label": "非人遗迹由海底延伸至南极",
+          "direction": "out"
+        }
+      ]
     },
     {
       "id": "celephais",
@@ -193,13 +757,69 @@
       "titleEn": "Celephaïs",
       "author": "H. P. Lovecraft",
       "era": "dreamlands",
-      "themes": ["梦境", "失落城市", "归乡"],
-      "locations": ["塞勒菲斯", "梦境国度"],
-      "motifs": ["童年城市", "梦境航行", "王冠"],
+      "themes": [
+        "梦境",
+        "失落城市",
+        "归乡"
+      ],
+      "locations": [
+        "塞勒菲斯",
+        "梦境国度"
+      ],
+      "motifs": [
+        "童年城市",
+        "梦境航行",
+        "王冠"
+      ],
       "summary": "一个人试图回到童年梦中之城，梦境不再是幻象，而成为更有吸引力的归宿。",
-      "atlasNodes": ["梦境", "塞勒菲斯"],
-      "sourceRefs": ["hpl-archive"],
-      "textStatus": "metadata-only"
+      "atlasNodes": [
+        "梦境",
+        "塞勒菲斯"
+      ],
+      "sourceRefs": [
+        "hpl-archive",
+        "hpl-publish",
+        "hpl-texts"
+      ],
+      "textStatus": "metadata-only",
+      "publication": {
+        "firstPublished": "1922, May",
+        "publicationYear": 1922,
+        "venue": "The Rainbow",
+        "issue": "No. 2",
+        "type": "periodical",
+        "source": "The H. P. Lovecraft Archive publication order"
+      },
+      "links": {
+        "hplText": "https://www.hplovecraft.com/writings/texts/fiction/c.aspx",
+        "hplPublication": "https://www.hplovecraft.com/writings/fiction/c.aspx"
+      },
+      "fullTextLinks": [
+        {
+          "label": "H. P. Lovecraft Archive",
+          "url": "https://www.hplovecraft.com/writings/texts/fiction/c.aspx",
+          "language": "en"
+        }
+      ],
+      "titleAliases": {
+        "zh": [
+          "塞勒菲斯",
+          "塞勒菲斯城"
+        ],
+        "en": [
+          "Celephaïs",
+          "Celephais"
+        ]
+      },
+      "collaborators": [],
+      "relationships": [
+        {
+          "target": "the-dream-quest-of-unknown-kadath",
+          "type": "dream-cycle",
+          "label": "梦境城市与卡达斯远行",
+          "direction": "out"
+        }
+      ]
     },
     {
       "id": "the-nameless-city",
@@ -209,13 +829,79 @@
       "titleEn": "The Nameless City",
       "author": "H. P. Lovecraft",
       "era": "middle",
-      "themes": ["远古城市", "沙漠", "非人文明"],
-      "locations": ["阿拉伯沙漠"],
-      "motifs": ["地下阶梯", "壁画长廊", "非人种族"],
+      "themes": [
+        "远古城市",
+        "沙漠",
+        "非人文明"
+      ],
+      "locations": [
+        "阿拉伯沙漠"
+      ],
+      "motifs": [
+        "地下阶梯",
+        "壁画长廊",
+        "非人种族"
+      ],
       "summary": "沙漠遗迹中的城市把历史推到人类文明之前，地下空间成为通向深时的入口。",
-      "atlasNodes": ["古城", "深时"],
-      "sourceRefs": ["hpl-archive"],
-      "textStatus": "metadata-only"
+      "atlasNodes": [
+        "古城",
+        "深时"
+      ],
+      "sourceRefs": [
+        "hpl-archive",
+        "hpl-publish",
+        "hpl-texts"
+      ],
+      "textStatus": "metadata-only",
+      "publication": {
+        "firstPublished": "1921, November",
+        "publicationYear": 1921,
+        "venue": "The Wolverine",
+        "issue": "No. 11",
+        "type": "periodical",
+        "source": "The H. P. Lovecraft Archive publication order"
+      },
+      "links": {
+        "hplText": "https://www.hplovecraft.com/writings/texts/fiction/nc.aspx",
+        "hplPublication": "https://www.hplovecraft.com/writings/fiction/nc.aspx"
+      },
+      "fullTextLinks": [
+        {
+          "label": "H. P. Lovecraft Archive",
+          "url": "https://www.hplovecraft.com/writings/texts/fiction/nc.aspx",
+          "language": "en"
+        }
+      ],
+      "titleAliases": {
+        "zh": [
+          "无名之城",
+          "无名城市"
+        ],
+        "en": [
+          "The Nameless City"
+        ]
+      },
+      "collaborators": [],
+      "relationships": [
+        {
+          "target": "at-the-mountains-of-madness",
+          "type": "ancient-city",
+          "label": "非人城市与深时建筑",
+          "direction": "out"
+        },
+        {
+          "target": "the-call-of-cthulhu",
+          "type": "ancient-city",
+          "label": "人类之前的文明痕迹",
+          "direction": "out"
+        },
+        {
+          "target": "under-the-pyramids",
+          "type": "ancient-city",
+          "label": "地下遗迹与古代尺度",
+          "direction": "in"
+        }
+      ]
     },
     {
       "id": "the-outsider",
@@ -225,13 +911,68 @@
       "titleEn": "The Outsider",
       "author": "H. P. Lovecraft",
       "era": "middle",
-      "themes": ["身份", "孤独", "古宅"],
-      "locations": ["无窗城堡", "宴会厅"],
-      "motifs": ["攀塔", "镜像", "自我识别"],
+      "themes": [
+        "身份",
+        "孤独",
+        "古宅"
+      ],
+      "locations": [
+        "无窗城堡",
+        "宴会厅"
+      ],
+      "motifs": [
+        "攀塔",
+        "镜像",
+        "自我识别"
+      ],
       "summary": "叙述者从幽暗建筑中走向光亮，最终看见自身才是最难承受的真相。",
-      "atlasNodes": ["身份", "古宅"],
-      "sourceRefs": ["hpl-archive"],
-      "textStatus": "metadata-only"
+      "atlasNodes": [
+        "身份",
+        "古宅"
+      ],
+      "sourceRefs": [
+        "hpl-archive",
+        "hpl-publish",
+        "hpl-texts"
+      ],
+      "textStatus": "metadata-only",
+      "publication": {
+        "firstPublished": "1926, April",
+        "publicationYear": 1926,
+        "venue": "Weird Tales",
+        "issue": "7, No. 4",
+        "type": "periodical",
+        "source": "The H. P. Lovecraft Archive publication order"
+      },
+      "links": {
+        "hplText": "https://www.hplovecraft.com/writings/texts/fiction/o.aspx",
+        "hplPublication": "https://www.hplovecraft.com/writings/fiction/o.aspx"
+      },
+      "fullTextLinks": [
+        {
+          "label": "H. P. Lovecraft Archive",
+          "url": "https://www.hplovecraft.com/writings/texts/fiction/o.aspx",
+          "language": "en"
+        }
+      ],
+      "titleAliases": {
+        "zh": [
+          "外来者",
+          "局外人"
+        ],
+        "en": [
+          "The Outsider"
+        ]
+      },
+      "collaborators": [],
+      "relationships": [
+        {
+          "target": "pickmans-model",
+          "type": "lineage",
+          "label": "自我认知转向怪物凝视",
+          "direction": "out"
+        }
+      ]
     },
     {
       "id": "the-music-of-erich-zann",
@@ -241,13 +982,67 @@
       "titleEn": "The Music of Erich Zann",
       "author": "H. P. Lovecraft",
       "era": "middle",
-      "themes": ["音乐", "城市", "不可见空间"],
-      "locations": ["欧塞尔街"],
-      "motifs": ["阁楼", "中提琴", "窗外虚空"],
+      "themes": [
+        "音乐",
+        "城市",
+        "不可见空间"
+      ],
+      "locations": [
+        "欧塞尔街"
+      ],
+      "motifs": [
+        "阁楼",
+        "中提琴",
+        "窗外虚空"
+      ],
       "summary": "一条无法再找到的街道和一位沉默乐师，让声音成为封住窗外虚空的脆弱屏障。",
-      "atlasNodes": ["城市", "虚空"],
-      "sourceRefs": ["hpl-archive"],
-      "textStatus": "metadata-only"
+      "atlasNodes": [
+        "城市",
+        "虚空"
+      ],
+      "sourceRefs": [
+        "hpl-archive",
+        "hpl-publish",
+        "hpl-texts"
+      ],
+      "textStatus": "metadata-only",
+      "publication": {
+        "firstPublished": "1922, March",
+        "publicationYear": 1922,
+        "venue": "The National Amateur",
+        "issue": "44, No. 4",
+        "type": "periodical",
+        "source": "The H. P. Lovecraft Archive publication order"
+      },
+      "links": {
+        "hplText": "https://www.hplovecraft.com/writings/texts/fiction/mez.aspx",
+        "hplPublication": "https://www.hplovecraft.com/writings/fiction/mez.aspx"
+      },
+      "fullTextLinks": [
+        {
+          "label": "H. P. Lovecraft Archive",
+          "url": "https://www.hplovecraft.com/writings/texts/fiction/mez.aspx",
+          "language": "en"
+        }
+      ],
+      "titleAliases": {
+        "zh": [
+          "埃里希·赞恩的音乐",
+          "艾瑞克·赞恩的音乐"
+        ],
+        "en": [
+          "The Music of Erich Zann"
+        ]
+      },
+      "collaborators": [],
+      "relationships": [
+        {
+          "target": "the-colour-out-of-space",
+          "type": "cosmic-science",
+          "label": "感官异常成为宇宙入侵证据",
+          "direction": "out"
+        }
+      ]
     },
     {
       "id": "herbert-west-reanimator",
@@ -257,13 +1052,69 @@
       "titleEn": "Herbert West—Reanimator",
       "author": "H. P. Lovecraft",
       "era": "middle",
-      "themes": ["医学", "复生", "实验"],
-      "locations": ["医学院", "战地医院"],
-      "motifs": ["血清", "连载结构", "失控实验"],
+      "themes": [
+        "医学",
+        "复生",
+        "实验"
+      ],
+      "locations": [
+        "医学院",
+        "战地医院"
+      ],
+      "motifs": [
+        "血清",
+        "连载结构",
+        "失控实验"
+      ],
       "summary": "以连载方式推进的医学恐怖，把理性实验推向对死亡边界的反复侵犯。",
-      "atlasNodes": ["医学", "复生"],
-      "sourceRefs": ["hpl-archive"],
-      "textStatus": "metadata-only"
+      "atlasNodes": [
+        "医学",
+        "复生"
+      ],
+      "sourceRefs": [
+        "hpl-archive",
+        "hpl-publish",
+        "hpl-texts"
+      ],
+      "textStatus": "metadata-only",
+      "publication": {
+        "firstPublished": "1922, February–July",
+        "publicationYear": 1922,
+        "venue": "Home Brew",
+        "issue": "1, No. 1–6",
+        "type": "periodical",
+        "source": "The H. P. Lovecraft Archive publication order"
+      },
+      "links": {
+        "hplText": "https://www.hplovecraft.com/writings/texts/fiction/hwr.aspx",
+        "hplPublication": "https://www.hplovecraft.com/writings/fiction/hwr.aspx"
+      },
+      "fullTextLinks": [
+        {
+          "label": "H. P. Lovecraft Archive",
+          "url": "https://www.hplovecraft.com/writings/texts/fiction/hwr.aspx",
+          "language": "en"
+        }
+      ],
+      "titleAliases": {
+        "zh": [
+          "赫伯特·韦斯特，复活者",
+          "赫伯特·韦斯特，起死回生者"
+        ],
+        "en": [
+          "Herbert West—Reanimator",
+          "Herbert West: Reanimator"
+        ]
+      },
+      "collaborators": [],
+      "relationships": [
+        {
+          "target": "the-thing-on-the-doorstep",
+          "type": "cosmic-science",
+          "label": "身体与意识可被技术化处理",
+          "direction": "out"
+        }
+      ]
     },
     {
       "id": "the-hound",
@@ -273,13 +1124,68 @@
       "titleEn": "The Hound",
       "author": "H. P. Lovecraft",
       "era": "middle",
-      "themes": ["盗墓", "诅咒", "禁物"],
-      "locations": ["荷兰墓地", "私人收藏室"],
-      "motifs": ["护符", "盗墓者", "追猎声"],
+      "themes": [
+        "盗墓",
+        "诅咒",
+        "禁物"
+      ],
+      "locations": [
+        "荷兰墓地",
+        "私人收藏室"
+      ],
+      "motifs": [
+        "护符",
+        "盗墓者",
+        "追猎声"
+      ],
       "summary": "一件从坟墓中取出的护符引来无法摆脱的追猎，收藏欲变成反噬。",
-      "atlasNodes": ["禁物", "墓地"],
-      "sourceRefs": ["hpl-archive"],
-      "textStatus": "metadata-only"
+      "atlasNodes": [
+        "禁物",
+        "墓地"
+      ],
+      "sourceRefs": [
+        "hpl-archive",
+        "hpl-publish",
+        "hpl-texts"
+      ],
+      "textStatus": "metadata-only",
+      "publication": {
+        "firstPublished": "1924, February",
+        "publicationYear": 1924,
+        "venue": "Weird Tales",
+        "issue": "3, No. 2",
+        "type": "periodical",
+        "source": "The H. P. Lovecraft Archive publication order"
+      },
+      "links": {
+        "hplText": "https://www.hplovecraft.com/writings/texts/fiction/h.aspx",
+        "hplPublication": "https://www.hplovecraft.com/writings/fiction/h.aspx"
+      },
+      "fullTextLinks": [
+        {
+          "label": "H. P. Lovecraft Archive",
+          "url": "https://www.hplovecraft.com/writings/texts/fiction/h.aspx",
+          "language": "en"
+        }
+      ],
+      "titleAliases": {
+        "zh": [
+          "猎犬",
+          "猎狗"
+        ],
+        "en": [
+          "The Hound"
+        ]
+      },
+      "collaborators": [],
+      "relationships": [
+        {
+          "target": "the-festival",
+          "type": "forbidden-book",
+          "label": "禁书收藏与地下仪式",
+          "direction": "out"
+        }
+      ]
     },
     {
       "id": "the-lurking-fear",
@@ -289,13 +1195,68 @@
       "titleEn": "The Lurking Fear",
       "author": "H. P. Lovecraft",
       "era": "middle",
-      "themes": ["家族", "山地", "退化"],
-      "locations": ["暴风山", "马滕斯宅邸"],
-      "motifs": ["雷暴", "地下通道", "家族退化"],
+      "themes": [
+        "家族",
+        "山地",
+        "退化"
+      ],
+      "locations": [
+        "暴风山",
+        "马滕斯宅邸"
+      ],
+      "motifs": [
+        "雷暴",
+        "地下通道",
+        "家族退化"
+      ],
       "summary": "调查者追索山地暴风中的失踪案，最终把怪异现象连回家族谱系和地下巢穴。",
-      "atlasNodes": ["血统", "地下"],
-      "sourceRefs": ["hpl-archive"],
-      "textStatus": "metadata-only"
+      "atlasNodes": [
+        "血统",
+        "地下"
+      ],
+      "sourceRefs": [
+        "hpl-archive",
+        "hpl-publish",
+        "hpl-texts"
+      ],
+      "textStatus": "metadata-only",
+      "publication": {
+        "firstPublished": "1923, January–April",
+        "publicationYear": 1923,
+        "venue": "Home Brew",
+        "issue": "2, No. 6 – 3, No. 3",
+        "type": "periodical",
+        "source": "The H. P. Lovecraft Archive publication order"
+      },
+      "links": {
+        "hplText": "https://www.hplovecraft.com/writings/texts/fiction/lf.aspx",
+        "hplPublication": "https://www.hplovecraft.com/writings/fiction/lf.aspx"
+      },
+      "fullTextLinks": [
+        {
+          "label": "H. P. Lovecraft Archive",
+          "url": "https://www.hplovecraft.com/writings/texts/fiction/lf.aspx",
+          "language": "en"
+        }
+      ],
+      "titleAliases": {
+        "zh": [
+          "潜伏的恐惧",
+          "潜藏的恐惧"
+        ],
+        "en": [
+          "The Lurking Fear"
+        ]
+      },
+      "collaborators": [],
+      "relationships": [
+        {
+          "target": "the-shunned-house",
+          "type": "lineage",
+          "label": "家族退化与房屋档案",
+          "direction": "out"
+        }
+      ]
     },
     {
       "id": "the-festival",
@@ -305,13 +1266,73 @@
       "titleEn": "The Festival",
       "author": "H. P. Lovecraft",
       "era": "middle",
-      "themes": ["仪式", "家族", "地下城"],
-      "locations": ["金斯波特"],
-      "motifs": ["冬至仪式", "祖先召唤", "地下海"],
+      "themes": [
+        "仪式",
+        "家族",
+        "地下城"
+      ],
+      "locations": [
+        "金斯波特"
+      ],
+      "motifs": [
+        "冬至仪式",
+        "祖先召唤",
+        "地下海"
+      ],
       "summary": "节庆返乡逐步转为地下仪式，传统不再温暖，而是把个体接回古老契约。",
-      "atlasNodes": ["仪式", "金斯波特"],
-      "sourceRefs": ["hpl-archive"],
-      "textStatus": "metadata-only"
+      "atlasNodes": [
+        "仪式",
+        "金斯波特"
+      ],
+      "sourceRefs": [
+        "hpl-archive",
+        "hpl-publish",
+        "hpl-texts"
+      ],
+      "textStatus": "metadata-only",
+      "publication": {
+        "firstPublished": "1925, January",
+        "publicationYear": 1925,
+        "venue": "Weird Tales",
+        "issue": "5, No. 1",
+        "type": "periodical",
+        "source": "The H. P. Lovecraft Archive publication order"
+      },
+      "links": {
+        "hplText": "https://www.hplovecraft.com/writings/texts/fiction/f.aspx",
+        "hplPublication": "https://www.hplovecraft.com/writings/fiction/f.aspx"
+      },
+      "fullTextLinks": [
+        {
+          "label": "H. P. Lovecraft Archive",
+          "url": "https://www.hplovecraft.com/writings/texts/fiction/f.aspx",
+          "language": "en"
+        }
+      ],
+      "titleAliases": {
+        "zh": [
+          "节日",
+          "庆典"
+        ],
+        "en": [
+          "The Festival"
+        ]
+      },
+      "collaborators": [],
+      "relationships": [
+        {
+          "target": "the-hound",
+          "type": "forbidden-book",
+          "label": "禁书收藏与地下仪式",
+          "direction": "in"
+        },
+        {
+          "target": "the-shadow-over-innsmouth",
+          "type": "lineage",
+          "label": "海岸宗族与非人血统",
+          "direction": "out"
+        }
+      ]
     },
     {
       "id": "under-the-pyramids",
@@ -321,13 +1342,82 @@
       "titleEn": "Under the Pyramids",
       "author": "H. P. Lovecraft",
       "era": "middle",
-      "themes": ["埃及", "地下", "幻术"],
-      "locations": ["吉萨", "地下神庙"],
-      "motifs": ["胡迪尼叙事", "金字塔", "巨型仪式"],
+      "themes": [
+        "埃及",
+        "地下",
+        "幻术"
+      ],
+      "locations": [
+        "吉萨",
+        "地下神庙"
+      ],
+      "motifs": [
+        "胡迪尼叙事",
+        "金字塔",
+        "巨型仪式"
+      ],
       "summary": "以冒险见闻包装地下神庙异象，让历史遗迹和表演术共同制造不可靠边界。",
-      "atlasNodes": ["地下", "仪式"],
-      "sourceRefs": ["hpl-archive"],
-      "textStatus": "metadata-only"
+      "atlasNodes": [
+        "地下",
+        "仪式"
+      ],
+      "sourceRefs": [
+        "hpl-archive",
+        "hpl-publish",
+        "hpl-texts"
+      ],
+      "textStatus": "metadata-only",
+      "publication": {
+        "firstPublished": "1924, May–June–July",
+        "publicationYear": 1924,
+        "venue": "Weird Tales",
+        "issue": "4, No. 2",
+        "type": "periodical",
+        "source": "The H. P. Lovecraft Archive publication order"
+      },
+      "links": {
+        "hplText": "https://www.hplovecraft.com/writings/texts/fiction/up.aspx",
+        "hplPublication": "https://www.hplovecraft.com/writings/fiction/up.aspx"
+      },
+      "fullTextLinks": [
+        {
+          "label": "H. P. Lovecraft Archive",
+          "url": "https://www.hplovecraft.com/writings/texts/fiction/up.aspx",
+          "language": "en"
+        }
+      ],
+      "titleAliases": {
+        "zh": [
+          "金字塔下",
+          "与法老同囚",
+          "法老囚笼"
+        ],
+        "en": [
+          "Under the Pyramids",
+          "Imprisoned with the Pharaohs"
+        ]
+      },
+      "collaborators": [
+        {
+          "name": "Harry Houdini",
+          "role": "commissioned persona",
+          "note": "HPL Archive lists the text as by Lovecraft for Harry Houdini."
+        }
+      ],
+      "relationships": [
+        {
+          "target": "the-nameless-city",
+          "type": "ancient-city",
+          "label": "地下遗迹与古代尺度",
+          "direction": "out"
+        },
+        {
+          "target": "through-the-gates-of-the-silver-key",
+          "type": "collaboration",
+          "label": "特殊署名与合作文本",
+          "direction": "out"
+        }
+      ]
     },
     {
       "id": "the-shunned-house",
@@ -337,13 +1427,73 @@
       "titleEn": "The Shunned House",
       "author": "H. P. Lovecraft",
       "era": "middle",
-      "themes": ["鬼宅", "档案调查", "腐败"],
-      "locations": ["普罗维登斯"],
-      "motifs": ["市政档案", "地下室", "黄绿色蒸汽"],
+      "themes": [
+        "鬼宅",
+        "档案调查",
+        "腐败"
+      ],
+      "locations": [
+        "普罗维登斯"
+      ],
+      "motifs": [
+        "市政档案",
+        "地下室",
+        "黄绿色蒸汽"
+      ],
       "summary": "调查者以地方史和房屋记录追踪一座被避开的建筑，理性档案最终抵达地下腐败源。",
-      "atlasNodes": ["档案", "地下"],
-      "sourceRefs": ["hpl-archive"],
-      "textStatus": "metadata-only"
+      "atlasNodes": [
+        "档案",
+        "地下"
+      ],
+      "sourceRefs": [
+        "hpl-archive",
+        "hpl-publish",
+        "hpl-texts"
+      ],
+      "textStatus": "metadata-only",
+      "publication": {
+        "firstPublished": "1928",
+        "publicationYear": 1937,
+        "venue": "The Shunned House",
+        "issue": "The Recluse Press",
+        "type": "periodical",
+        "source": "The H. P. Lovecraft Archive publication order"
+      },
+      "links": {
+        "hplText": "https://www.hplovecraft.com/writings/texts/fiction/sh.aspx",
+        "hplPublication": "https://www.hplovecraft.com/writings/fiction/sh.aspx"
+      },
+      "fullTextLinks": [
+        {
+          "label": "H. P. Lovecraft Archive",
+          "url": "https://www.hplovecraft.com/writings/texts/fiction/sh.aspx",
+          "language": "en"
+        }
+      ],
+      "titleAliases": {
+        "zh": [
+          "被弃之屋",
+          "避讳之屋"
+        ],
+        "en": [
+          "The Shunned House"
+        ]
+      },
+      "collaborators": [],
+      "relationships": [
+        {
+          "target": "the-dunwich-horror",
+          "type": "lineage",
+          "label": "新英格兰家宅中的遗传恐惧",
+          "direction": "out"
+        },
+        {
+          "target": "the-lurking-fear",
+          "type": "lineage",
+          "label": "家族退化与房屋档案",
+          "direction": "in"
+        }
+      ]
     },
     {
       "id": "the-horror-at-red-hook",
@@ -353,13 +1503,67 @@
       "titleEn": "The Horror at Red Hook",
       "author": "H. P. Lovecraft",
       "era": "middle",
-      "themes": ["都市", "调查", "地下仪式"],
-      "locations": ["纽约红钩区"],
-      "motifs": ["警探", "地下礼拜堂", "城市迷宫"],
+      "themes": [
+        "都市",
+        "调查",
+        "地下仪式"
+      ],
+      "locations": [
+        "纽约红钩区"
+      ],
+      "motifs": [
+        "警探",
+        "地下礼拜堂",
+        "城市迷宫"
+      ],
       "summary": "城市调查和地下仪式交织，展现洛夫克拉夫特在都市空间中的偏执与不安。",
-      "atlasNodes": ["城市", "仪式"],
-      "sourceRefs": ["hpl-archive"],
-      "textStatus": "metadata-only"
+      "atlasNodes": [
+        "城市",
+        "仪式"
+      ],
+      "sourceRefs": [
+        "hpl-archive",
+        "hpl-publish",
+        "hpl-texts"
+      ],
+      "textStatus": "metadata-only",
+      "publication": {
+        "firstPublished": "1927, January",
+        "publicationYear": 1927,
+        "venue": "Weird Tales",
+        "issue": "9, No. 1",
+        "type": "periodical",
+        "source": "The H. P. Lovecraft Archive publication order"
+      },
+      "links": {
+        "hplText": "https://www.hplovecraft.com/writings/texts/fiction/hrh.aspx",
+        "hplPublication": "https://www.hplovecraft.com/writings/fiction/hrh.aspx"
+      },
+      "fullTextLinks": [
+        {
+          "label": "H. P. Lovecraft Archive",
+          "url": "https://www.hplovecraft.com/writings/texts/fiction/hrh.aspx",
+          "language": "en"
+        }
+      ],
+      "titleAliases": {
+        "zh": [
+          "红钩区的恐怖",
+          "红钩怪谈"
+        ],
+        "en": [
+          "The Horror at Red Hook"
+        ]
+      },
+      "collaborators": [],
+      "relationships": [
+        {
+          "target": "the-call-of-cthulhu",
+          "type": "forbidden-book",
+          "label": "都市档案与集体证词",
+          "direction": "out"
+        }
+      ]
     },
     {
       "id": "pickmans-model",
@@ -369,13 +1573,74 @@
       "titleEn": "Pickman's Model",
       "author": "H. P. Lovecraft",
       "era": "cthulhu",
-      "themes": ["艺术", "地下", "证据"],
-      "locations": ["波士顿北区"],
-      "motifs": ["画室", "照片", "地下通道"],
+      "themes": [
+        "艺术",
+        "地下",
+        "证据"
+      ],
+      "locations": [
+        "波士顿北区"
+      ],
+      "motifs": [
+        "画室",
+        "照片",
+        "地下通道"
+      ],
       "summary": "画家作品令人恐惧的原因不是想象力，而是模特本身可能真实存在。艺术成为证据。",
-      "atlasNodes": ["艺术", "地下"],
-      "sourceRefs": ["hpl-archive"],
-      "textStatus": "metadata-only"
+      "atlasNodes": [
+        "艺术",
+        "地下"
+      ],
+      "sourceRefs": [
+        "hpl-archive",
+        "hpl-publish",
+        "hpl-texts"
+      ],
+      "textStatus": "metadata-only",
+      "publication": {
+        "firstPublished": "1927, October",
+        "publicationYear": 1927,
+        "venue": "Weird Tales",
+        "issue": "10, No. 4",
+        "type": "periodical",
+        "source": "The H. P. Lovecraft Archive publication order"
+      },
+      "links": {
+        "hplText": "https://www.hplovecraft.com/writings/texts/fiction/pm.aspx",
+        "hplPublication": "https://www.hplovecraft.com/writings/fiction/pm.aspx"
+      },
+      "fullTextLinks": [
+        {
+          "label": "H. P. Lovecraft Archive",
+          "url": "https://www.hplovecraft.com/writings/texts/fiction/pm.aspx",
+          "language": "en"
+        }
+      ],
+      "titleAliases": {
+        "zh": [
+          "皮克曼的模特",
+          "皮克曼的画模"
+        ],
+        "en": [
+          "Pickman's Model",
+          "Pickman’s Model"
+        ]
+      },
+      "collaborators": [],
+      "relationships": [
+        {
+          "target": "the-outsider",
+          "type": "lineage",
+          "label": "自我认知转向怪物凝视",
+          "direction": "in"
+        },
+        {
+          "target": "the-haunter-of-the-dark",
+          "type": "publication",
+          "label": "Weird Tales 后期视觉恐怖链",
+          "direction": "out"
+        }
+      ]
     },
     {
       "id": "the-call-of-cthulhu",
@@ -385,13 +1650,96 @@
       "titleEn": "The Call of Cthulhu",
       "author": "H. P. Lovecraft",
       "era": "cthulhu",
-      "themes": ["旧日支配者", "梦境", "深海"],
-      "locations": ["新奥尔良", "拉莱耶", "南太平洋"],
-      "motifs": ["浅浮雕", "集体梦境", "海难记录"],
+      "themes": [
+        "旧日支配者",
+        "梦境",
+        "深海"
+      ],
+      "locations": [
+        "新奥尔良",
+        "拉莱耶",
+        "南太平洋"
+      ],
+      "motifs": [
+        "浅浮雕",
+        "集体梦境",
+        "海难记录"
+      ],
       "summary": "梦、雕像、警局记录和海难被拼接成同一份档案，拉莱耶与沉睡旧日支配者成为神话体系的核心节点。",
-      "atlasNodes": ["克苏鲁", "拉莱耶", "梦境", "深海"],
-      "sourceRefs": ["hpl-archive", "gutenberg"],
-      "textStatus": "public-domain-link"
+      "atlasNodes": [
+        "克苏鲁",
+        "拉莱耶",
+        "梦境",
+        "深海"
+      ],
+      "sourceRefs": [
+        "hpl-archive",
+        "gutenberg",
+        "hpl-publish",
+        "hpl-texts"
+      ],
+      "textStatus": "public-domain-link",
+      "publication": {
+        "firstPublished": "1928, February",
+        "publicationYear": 1928,
+        "venue": "Weird Tales",
+        "issue": "11, No. 2",
+        "type": "periodical",
+        "source": "The H. P. Lovecraft Archive publication order"
+      },
+      "links": {
+        "hplText": "https://www.hplovecraft.com/writings/texts/fiction/cc.aspx",
+        "hplPublication": "https://www.hplovecraft.com/writings/fiction/cc.aspx"
+      },
+      "fullTextLinks": [
+        {
+          "label": "H. P. Lovecraft Archive",
+          "url": "https://www.hplovecraft.com/writings/texts/fiction/cc.aspx",
+          "language": "en"
+        }
+      ],
+      "titleAliases": {
+        "zh": [
+          "克苏鲁的呼唤",
+          "克苏鲁之召唤"
+        ],
+        "en": [
+          "The Call of Cthulhu"
+        ]
+      },
+      "collaborators": [],
+      "relationships": [
+        {
+          "target": "dagon",
+          "type": "deep-sea",
+          "label": "深海证词通向旧日支配者",
+          "direction": "in"
+        },
+        {
+          "target": "the-nameless-city",
+          "type": "ancient-city",
+          "label": "人类之前的文明痕迹",
+          "direction": "in"
+        },
+        {
+          "target": "the-horror-at-red-hook",
+          "type": "forbidden-book",
+          "label": "都市档案与集体证词",
+          "direction": "in"
+        },
+        {
+          "target": "the-dunwich-horror",
+          "type": "forbidden-book",
+          "label": "禁书、仪式和旧神姓名",
+          "direction": "out"
+        },
+        {
+          "target": "the-haunter-of-the-dark",
+          "type": "forbidden-book",
+          "label": "城市调查中的旧日神秘物",
+          "direction": "in"
+        }
+      ]
     },
     {
       "id": "the-silver-key",
@@ -401,13 +1749,73 @@
       "titleEn": "The Silver Key",
       "author": "H. P. Lovecraft",
       "era": "dreamlands",
-      "themes": ["梦境", "卡特", "时间"],
-      "locations": ["阿卡姆", "梦境之门"],
-      "motifs": ["钥匙", "童年", "门槛"],
+      "themes": [
+        "梦境",
+        "卡特",
+        "时间"
+      ],
+      "locations": [
+        "阿卡姆",
+        "梦境之门"
+      ],
+      "motifs": [
+        "钥匙",
+        "童年",
+        "门槛"
+      ],
       "summary": "伦道夫·卡特寻找通向失落梦境的钥匙，童年不只是回忆，而像一套可进入的坐标。",
-      "atlasNodes": ["梦境", "卡特"],
-      "sourceRefs": ["hpl-archive"],
-      "textStatus": "metadata-only"
+      "atlasNodes": [
+        "梦境",
+        "卡特"
+      ],
+      "sourceRefs": [
+        "hpl-archive",
+        "hpl-publish",
+        "hpl-texts"
+      ],
+      "textStatus": "metadata-only",
+      "publication": {
+        "firstPublished": "1929, January",
+        "publicationYear": 1929,
+        "venue": "Weird Tales",
+        "issue": "13, No. 1",
+        "type": "periodical",
+        "source": "The H. P. Lovecraft Archive publication order"
+      },
+      "links": {
+        "hplText": "https://www.hplovecraft.com/writings/texts/fiction/sk.aspx",
+        "hplPublication": "https://www.hplovecraft.com/writings/fiction/sk.aspx"
+      },
+      "fullTextLinks": [
+        {
+          "label": "H. P. Lovecraft Archive",
+          "url": "https://www.hplovecraft.com/writings/texts/fiction/sk.aspx",
+          "language": "en"
+        }
+      ],
+      "titleAliases": {
+        "zh": [
+          "银钥匙"
+        ],
+        "en": [
+          "The Silver Key"
+        ]
+      },
+      "collaborators": [],
+      "relationships": [
+        {
+          "target": "through-the-gates-of-the-silver-key",
+          "type": "dream-cycle",
+          "label": "银钥匙叙事的直接续篇",
+          "direction": "out"
+        },
+        {
+          "target": "the-dream-quest-of-unknown-kadath",
+          "type": "dream-cycle",
+          "label": "伦道夫·卡特的梦境谱系",
+          "direction": "in"
+        }
+      ]
     },
     {
       "id": "the-dream-quest-of-unknown-kadath",
@@ -417,13 +1825,87 @@
       "titleEn": "The Dream-Quest of Unknown Kadath",
       "author": "H. P. Lovecraft",
       "era": "dreamlands",
-      "themes": ["梦境", "旅行", "诸神"],
-      "locations": ["卡达斯", "梦境诸城"],
-      "motifs": ["梦境地理", "夜魇", "未知卡达斯"],
+      "themes": [
+        "梦境",
+        "旅行",
+        "诸神"
+      ],
+      "locations": [
+        "卡达斯",
+        "梦境诸城"
+      ],
+      "motifs": [
+        "梦境地理",
+        "夜魇",
+        "未知卡达斯"
+      ],
       "summary": "卡特在梦境大陆中追寻诸神之城，作品把早期梦境地名组织成一张宏大的旅行地图。",
-      "atlasNodes": ["梦境", "卡达斯", "卡特"],
-      "sourceRefs": ["hpl-archive"],
-      "textStatus": "metadata-only"
+      "atlasNodes": [
+        "梦境",
+        "卡达斯",
+        "卡特"
+      ],
+      "sourceRefs": [
+        "hpl-archive",
+        "hpl-publish",
+        "hpl-texts"
+      ],
+      "textStatus": "metadata-only",
+      "publication": {
+        "firstPublished": "1943",
+        "publicationYear": 1943,
+        "venue": "Beyond the Wall of Sleep",
+        "issue": "Arkham House",
+        "type": "periodical",
+        "source": "The H. P. Lovecraft Archive publication order"
+      },
+      "links": {
+        "hplText": "https://www.hplovecraft.com/writings/texts/fiction/dq.aspx",
+        "hplPublication": "https://www.hplovecraft.com/writings/fiction/dq.aspx"
+      },
+      "fullTextLinks": [
+        {
+          "label": "H. P. Lovecraft Archive",
+          "url": "https://www.hplovecraft.com/writings/texts/fiction/dq.aspx",
+          "language": "en"
+        }
+      ],
+      "titleAliases": {
+        "zh": [
+          "梦寻未知卡达斯",
+          "梦寻秘境卡达斯"
+        ],
+        "en": [
+          "The Dream-Quest of Unknown Kadath"
+        ]
+      },
+      "collaborators": [],
+      "relationships": [
+        {
+          "target": "polaris",
+          "type": "dream-cycle",
+          "label": "梦境地理的早期坐标",
+          "direction": "in"
+        },
+        {
+          "target": "the-white-ship",
+          "type": "dream-cycle",
+          "label": "梦境航海扩展为完整国度",
+          "direction": "in"
+        },
+        {
+          "target": "celephais",
+          "type": "dream-cycle",
+          "label": "梦境城市与卡达斯远行",
+          "direction": "in"
+        },
+        {
+          "target": "the-silver-key",
+          "type": "dream-cycle",
+          "label": "伦道夫·卡特的梦境谱系",
+          "direction": "out"
+        }
+      ]
     },
     {
       "id": "the-colour-out-of-space",
@@ -433,13 +1915,82 @@
       "titleEn": "The Colour Out of Space",
       "author": "H. P. Lovecraft",
       "era": "cthulhu",
-      "themes": ["宇宙异常", "乡野", "污染"],
-      "locations": ["阿卡姆郊外", "纳洪农场"],
-      "motifs": ["陨石", "水井", "不可命名颜色"],
+      "themes": [
+        "宇宙异常",
+        "乡野",
+        "污染"
+      ],
+      "locations": [
+        "阿卡姆郊外",
+        "纳洪农场"
+      ],
+      "motifs": [
+        "陨石",
+        "水井",
+        "不可命名颜色"
+      ],
       "summary": "异常颜色从陨石进入农场、水井与生物体，恐惧不依赖怪物，而依赖缓慢改变的环境。",
-      "atlasNodes": ["阿卡姆", "宇宙异常"],
-      "sourceRefs": ["hpl-archive", "gutenberg"],
-      "textStatus": "public-domain-link"
+      "atlasNodes": [
+        "阿卡姆",
+        "宇宙异常"
+      ],
+      "sourceRefs": [
+        "hpl-archive",
+        "gutenberg",
+        "hpl-publish",
+        "hpl-texts"
+      ],
+      "textStatus": "public-domain-link",
+      "publication": {
+        "firstPublished": "1927, September",
+        "publicationYear": 1927,
+        "venue": "Amazing Stories",
+        "issue": "Vol. 2, No. 6",
+        "type": "periodical",
+        "source": "The H. P. Lovecraft Archive publication order"
+      },
+      "links": {
+        "hplText": "https://www.hplovecraft.com/writings/texts/fiction/cs.aspx",
+        "hplPublication": "https://www.hplovecraft.com/writings/fiction/cs.aspx"
+      },
+      "fullTextLinks": [
+        {
+          "label": "H. P. Lovecraft Archive",
+          "url": "https://www.hplovecraft.com/writings/texts/fiction/cs.aspx",
+          "language": "en"
+        }
+      ],
+      "titleAliases": {
+        "zh": [
+          "异星之彩",
+          "外太空来的颜色"
+        ],
+        "en": [
+          "The Colour Out of Space",
+          "The Color Out of Space"
+        ]
+      },
+      "collaborators": [],
+      "relationships": [
+        {
+          "target": "the-music-of-erich-zann",
+          "type": "cosmic-science",
+          "label": "感官异常成为宇宙入侵证据",
+          "direction": "in"
+        },
+        {
+          "target": "the-dunwich-horror",
+          "type": "cosmic-science",
+          "label": "乡野空间中的非人力量",
+          "direction": "out"
+        },
+        {
+          "target": "the-whisperer-in-darkness",
+          "type": "cosmic-science",
+          "label": "乡村调查转向星际证据",
+          "direction": "out"
+        }
+      ]
     },
     {
       "id": "the-dunwich-horror",
@@ -449,13 +2000,87 @@
       "titleEn": "The Dunwich Horror",
       "author": "H. P. Lovecraft",
       "era": "cthulhu",
-      "themes": ["禁书", "乡村", "外神"],
-      "locations": ["敦威治", "密斯卡托尼克大学"],
-      "motifs": ["死灵之书", "双生怪异", "山顶仪式"],
+      "themes": [
+        "禁书",
+        "乡村",
+        "外神"
+      ],
+      "locations": [
+        "敦威治",
+        "密斯卡托尼克大学"
+      ],
+      "motifs": [
+        "死灵之书",
+        "双生怪异",
+        "山顶仪式"
+      ],
       "summary": "大学档案、禁书阅读和乡野传闻交汇，尤格-索托斯的名字从仪式中进入家族悲剧。",
-      "atlasNodes": ["禁书", "密斯卡托尼克", "外神"],
-      "sourceRefs": ["hpl-archive"],
-      "textStatus": "metadata-only"
+      "atlasNodes": [
+        "禁书",
+        "密斯卡托尼克",
+        "外神"
+      ],
+      "sourceRefs": [
+        "hpl-archive",
+        "hpl-publish",
+        "hpl-texts"
+      ],
+      "textStatus": "metadata-only",
+      "publication": {
+        "firstPublished": "1929, April",
+        "publicationYear": 1929,
+        "venue": "Weird Tales",
+        "issue": "13, No. 4",
+        "type": "periodical",
+        "source": "The H. P. Lovecraft Archive publication order"
+      },
+      "links": {
+        "hplText": "https://www.hplovecraft.com/writings/texts/fiction/dh.aspx",
+        "hplPublication": "https://www.hplovecraft.com/writings/fiction/dh.aspx"
+      },
+      "fullTextLinks": [
+        {
+          "label": "H. P. Lovecraft Archive",
+          "url": "https://www.hplovecraft.com/writings/texts/fiction/dh.aspx",
+          "language": "en"
+        }
+      ],
+      "titleAliases": {
+        "zh": [
+          "敦威治恐怖事件",
+          "敦威治恐怖"
+        ],
+        "en": [
+          "The Dunwich Horror"
+        ]
+      },
+      "collaborators": [],
+      "relationships": [
+        {
+          "target": "the-shunned-house",
+          "type": "lineage",
+          "label": "新英格兰家宅中的遗传恐惧",
+          "direction": "in"
+        },
+        {
+          "target": "the-call-of-cthulhu",
+          "type": "forbidden-book",
+          "label": "禁书、仪式和旧神姓名",
+          "direction": "in"
+        },
+        {
+          "target": "the-colour-out-of-space",
+          "type": "cosmic-science",
+          "label": "乡野空间中的非人力量",
+          "direction": "in"
+        },
+        {
+          "target": "the-dreams-in-the-witch-house",
+          "type": "miskatonic",
+          "label": "阿卡姆学术圈与仪式数学",
+          "direction": "in"
+        }
+      ]
     },
     {
       "id": "the-whisperer-in-darkness",
@@ -465,13 +2090,80 @@
       "titleEn": "The Whisperer in Darkness",
       "author": "H. P. Lovecraft",
       "era": "late",
-      "themes": ["外星种族", "书信", "山地"],
-      "locations": ["佛蒙特山区"],
-      "motifs": ["留声筒", "书信档案", "米戈"],
+      "themes": [
+        "外星种族",
+        "书信",
+        "山地"
+      ],
+      "locations": [
+        "佛蒙特山区"
+      ],
+      "motifs": [
+        "留声筒",
+        "书信档案",
+        "米戈"
+      ],
       "summary": "洪水传闻、书信往来和录音证据共同构成调查链，把山地民俗推向外星生物学。",
-      "atlasNodes": ["米戈", "山地", "书信"],
-      "sourceRefs": ["hpl-archive"],
-      "textStatus": "metadata-only"
+      "atlasNodes": [
+        "米戈",
+        "山地",
+        "书信"
+      ],
+      "sourceRefs": [
+        "hpl-archive",
+        "hpl-publish",
+        "hpl-texts"
+      ],
+      "textStatus": "metadata-only",
+      "publication": {
+        "firstPublished": "1931, August",
+        "publicationYear": 1931,
+        "venue": "Weird Tales",
+        "issue": "18, No. 1",
+        "type": "periodical",
+        "source": "The H. P. Lovecraft Archive publication order"
+      },
+      "links": {
+        "hplText": "https://www.hplovecraft.com/writings/texts/fiction/wid.aspx",
+        "hplPublication": "https://www.hplovecraft.com/writings/fiction/wid.aspx"
+      },
+      "fullTextLinks": [
+        {
+          "label": "H. P. Lovecraft Archive",
+          "url": "https://www.hplovecraft.com/writings/texts/fiction/wid.aspx",
+          "language": "en"
+        }
+      ],
+      "titleAliases": {
+        "zh": [
+          "黑暗中的低语",
+          "暗夜呢喃"
+        ],
+        "en": [
+          "The Whisperer in Darkness"
+        ]
+      },
+      "collaborators": [],
+      "relationships": [
+        {
+          "target": "the-colour-out-of-space",
+          "type": "cosmic-science",
+          "label": "乡村调查转向星际证据",
+          "direction": "in"
+        },
+        {
+          "target": "at-the-mountains-of-madness",
+          "type": "cosmic-science",
+          "label": "非人文明从传闻变成考察",
+          "direction": "out"
+        },
+        {
+          "target": "the-shadow-out-of-time",
+          "type": "cosmic-science",
+          "label": "意识、记录与外星文明",
+          "direction": "out"
+        }
+      ]
     },
     {
       "id": "at-the-mountains-of-madness",
@@ -481,13 +2173,87 @@
       "titleEn": "At the Mountains of Madness",
       "author": "H. P. Lovecraft",
       "era": "late",
-      "themes": ["南极", "深时", "非人文明"],
-      "locations": ["南极高原", "远古城市"],
-      "motifs": ["考察队", "壁画", "古老者"],
+      "themes": [
+        "南极",
+        "深时",
+        "非人文明"
+      ],
+      "locations": [
+        "南极高原",
+        "远古城市"
+      ],
+      "motifs": [
+        "考察队",
+        "壁画",
+        "古老者"
+      ],
       "summary": "南极考察队发现远古城市和壁画长廊，人类历史在地质年代面前缩成迟到的注脚。",
-      "atlasNodes": ["南极", "古老者", "深时"],
-      "sourceRefs": ["hpl-archive"],
-      "textStatus": "metadata-only"
+      "atlasNodes": [
+        "南极",
+        "古老者",
+        "深时"
+      ],
+      "sourceRefs": [
+        "hpl-archive",
+        "hpl-publish",
+        "hpl-texts"
+      ],
+      "textStatus": "metadata-only",
+      "publication": {
+        "firstPublished": "1936, February–April",
+        "publicationYear": 1936,
+        "venue": "Astounding Stories",
+        "issue": "16, No. 6 – 17, No. 2",
+        "type": "periodical",
+        "source": "The H. P. Lovecraft Archive publication order"
+      },
+      "links": {
+        "hplText": "https://www.hplovecraft.com/writings/texts/fiction/mm.aspx",
+        "hplPublication": "https://www.hplovecraft.com/writings/fiction/mm.aspx"
+      },
+      "fullTextLinks": [
+        {
+          "label": "H. P. Lovecraft Archive",
+          "url": "https://www.hplovecraft.com/writings/texts/fiction/mm.aspx",
+          "language": "en"
+        }
+      ],
+      "titleAliases": {
+        "zh": [
+          "疯狂山脉",
+          "在疯狂山脉"
+        ],
+        "en": [
+          "At the Mountains of Madness"
+        ]
+      },
+      "collaborators": [],
+      "relationships": [
+        {
+          "target": "the-nameless-city",
+          "type": "ancient-city",
+          "label": "非人城市与深时建筑",
+          "direction": "in"
+        },
+        {
+          "target": "the-whisperer-in-darkness",
+          "type": "cosmic-science",
+          "label": "非人文明从传闻变成考察",
+          "direction": "in"
+        },
+        {
+          "target": "the-shadow-out-of-time",
+          "type": "ancient-city",
+          "label": "深时文明与史前档案",
+          "direction": "out"
+        },
+        {
+          "target": "the-temple",
+          "type": "ancient-city",
+          "label": "非人遗迹由海底延伸至南极",
+          "direction": "in"
+        }
+      ]
     },
     {
       "id": "the-shadow-over-innsmouth",
@@ -497,13 +2263,75 @@
       "titleEn": "The Shadow over Innsmouth",
       "author": "H. P. Lovecraft",
       "era": "late",
-      "themes": ["深海", "血统", "小镇"],
-      "locations": ["印斯茅斯", "魔鬼礁"],
-      "motifs": ["家族谱系", "深潜者", "海底城市"],
+      "themes": [
+        "深海",
+        "血统",
+        "小镇"
+      ],
+      "locations": [
+        "印斯茅斯",
+        "魔鬼礁"
+      ],
+      "motifs": [
+        "家族谱系",
+        "深潜者",
+        "海底城市"
+      ],
       "summary": "旅行调查逐渐转为身份恐惧，海边小镇的经济、信仰和血缘都指向深海契约。",
-      "atlasNodes": ["印斯茅斯", "深海", "血统"],
-      "sourceRefs": ["hpl-archive"],
-      "textStatus": "metadata-only"
+      "atlasNodes": [
+        "印斯茅斯",
+        "深海",
+        "血统"
+      ],
+      "sourceRefs": [
+        "hpl-archive",
+        "hpl-publish",
+        "hpl-texts"
+      ],
+      "textStatus": "metadata-only",
+      "publication": {
+        "firstPublished": "1936",
+        "publicationYear": 1936,
+        "venue": "The Shadow over Innsmouth",
+        "issue": "Visionary Publishing Co.",
+        "type": "periodical",
+        "source": "The H. P. Lovecraft Archive publication order"
+      },
+      "links": {
+        "hplText": "https://www.hplovecraft.com/writings/texts/fiction/soi.aspx",
+        "hplPublication": "https://www.hplovecraft.com/writings/fiction/soi.aspx"
+      },
+      "fullTextLinks": [
+        {
+          "label": "H. P. Lovecraft Archive",
+          "url": "https://www.hplovecraft.com/writings/texts/fiction/soi.aspx",
+          "language": "en"
+        }
+      ],
+      "titleAliases": {
+        "zh": [
+          "印斯茅斯疑云",
+          "印斯茅斯的阴霾"
+        ],
+        "en": [
+          "The Shadow over Innsmouth"
+        ]
+      },
+      "collaborators": [],
+      "relationships": [
+        {
+          "target": "dagon",
+          "type": "deep-sea",
+          "label": "达贡崇拜与海岸共同体",
+          "direction": "in"
+        },
+        {
+          "target": "the-festival",
+          "type": "lineage",
+          "label": "海岸宗族与非人血统",
+          "direction": "in"
+        }
+      ]
     },
     {
       "id": "the-dreams-in-the-witch-house",
@@ -513,13 +2341,81 @@
       "titleEn": "The Dreams in the Witch House",
       "author": "H. P. Lovecraft",
       "era": "late",
-      "themes": ["梦境", "数学", "女巫"],
-      "locations": ["阿卡姆", "女巫屋"],
-      "motifs": ["非欧几何", "梦中旅行", "黑色仪式"],
+      "themes": [
+        "梦境",
+        "数学",
+        "女巫"
+      ],
+      "locations": [
+        "阿卡姆",
+        "女巫屋"
+      ],
+      "motifs": [
+        "非欧几何",
+        "梦中旅行",
+        "黑色仪式"
+      ],
       "summary": "数学空间、梦境通道和新英格兰女巫传说互相折叠，房间本身像一台通往外部维度的机器。",
-      "atlasNodes": ["阿卡姆", "梦境", "维度"],
-      "sourceRefs": ["hpl-archive"],
-      "textStatus": "metadata-only"
+      "atlasNodes": [
+        "阿卡姆",
+        "梦境",
+        "维度"
+      ],
+      "sourceRefs": [
+        "hpl-archive",
+        "hpl-publish",
+        "hpl-texts"
+      ],
+      "textStatus": "metadata-only",
+      "publication": {
+        "firstPublished": "1933, July",
+        "publicationYear": 1933,
+        "venue": "Weird Tales",
+        "issue": "22, No. 1",
+        "type": "periodical",
+        "source": "The H. P. Lovecraft Archive publication order"
+      },
+      "links": {
+        "hplText": "https://www.hplovecraft.com/writings/texts/fiction/dwh.aspx",
+        "hplPublication": "https://www.hplovecraft.com/writings/fiction/dwh.aspx"
+      },
+      "fullTextLinks": [
+        {
+          "label": "H. P. Lovecraft Archive",
+          "url": "https://www.hplovecraft.com/writings/texts/fiction/dwh.aspx",
+          "language": "en"
+        }
+      ],
+      "titleAliases": {
+        "zh": [
+          "女巫屋中之梦",
+          "女巫屋的梦"
+        ],
+        "en": [
+          "The Dreams in the Witch House"
+        ]
+      },
+      "collaborators": [],
+      "relationships": [
+        {
+          "target": "the-dunwich-horror",
+          "type": "miskatonic",
+          "label": "阿卡姆学术圈与仪式数学",
+          "direction": "out"
+        },
+        {
+          "target": "the-shadow-out-of-time",
+          "type": "cosmic-science",
+          "label": "数学、梦境和意识转移",
+          "direction": "out"
+        },
+        {
+          "target": "the-thing-on-the-doorstep",
+          "type": "miskatonic",
+          "label": "阿卡姆周边的身份侵入",
+          "direction": "in"
+        }
+      ]
     },
     {
       "id": "through-the-gates-of-the-silver-key",
@@ -529,13 +2425,81 @@
       "titleEn": "Through the Gates of the Silver Key",
       "author": "H. P. Lovecraft and E. Hoffmann Price",
       "era": "late",
-      "themes": ["梦境", "身份", "多维"],
-      "locations": ["终极门槛", "多维空间"],
-      "motifs": ["银钥匙", "卡特", "身份变换"],
+      "themes": [
+        "梦境",
+        "身份",
+        "多维"
+      ],
+      "locations": [
+        "终极门槛",
+        "多维空间"
+      ],
+      "motifs": [
+        "银钥匙",
+        "卡特",
+        "身份变换"
+      ],
       "summary": "银钥匙故事继续扩展，人的身份被拆成跨越时间和维度的多重形态。",
-      "atlasNodes": ["梦境", "卡特", "维度"],
-      "sourceRefs": ["hpl-archive"],
-      "textStatus": "metadata-only"
+      "atlasNodes": [
+        "梦境",
+        "卡特",
+        "维度"
+      ],
+      "sourceRefs": [
+        "hpl-archive",
+        "hpl-publish",
+        "hpl-texts"
+      ],
+      "textStatus": "metadata-only",
+      "publication": {
+        "firstPublished": "1934, July",
+        "publicationYear": 1934,
+        "venue": "Weird Tales",
+        "issue": "24, No. 1",
+        "type": "periodical",
+        "source": "The H. P. Lovecraft Archive publication order"
+      },
+      "links": {
+        "hplText": "https://www.hplovecraft.com/writings/texts/fiction/tgsk.aspx",
+        "hplPublication": "https://www.hplovecraft.com/writings/fiction/tgsk.aspx"
+      },
+      "fullTextLinks": [
+        {
+          "label": "H. P. Lovecraft Archive",
+          "url": "https://www.hplovecraft.com/writings/texts/fiction/tgsk.aspx",
+          "language": "en"
+        }
+      ],
+      "titleAliases": {
+        "zh": [
+          "穿越银钥匙之门",
+          "银钥匙之门"
+        ],
+        "en": [
+          "Through the Gates of the Silver Key"
+        ]
+      },
+      "collaborators": [
+        {
+          "name": "E. Hoffmann Price",
+          "role": "co-author",
+          "note": "HPL Archive lists both authors for this Carter cycle sequel."
+        }
+      ],
+      "relationships": [
+        {
+          "target": "under-the-pyramids",
+          "type": "collaboration",
+          "label": "特殊署名与合作文本",
+          "direction": "in"
+        },
+        {
+          "target": "the-silver-key",
+          "type": "dream-cycle",
+          "label": "银钥匙叙事的直接续篇",
+          "direction": "in"
+        }
+      ]
     },
     {
       "id": "the-thing-on-the-doorstep",
@@ -545,13 +2509,75 @@
       "titleEn": "The Thing on the Doorstep",
       "author": "H. P. Lovecraft",
       "era": "late",
-      "themes": ["身份", "附身", "阿卡姆"],
-      "locations": ["阿卡姆", "印斯茅斯关联家族"],
-      "motifs": ["灵魂转移", "婚姻", "门阶遗体"],
+      "themes": [
+        "身份",
+        "附身",
+        "阿卡姆"
+      ],
+      "locations": [
+        "阿卡姆",
+        "印斯茅斯关联家族"
+      ],
+      "motifs": [
+        "灵魂转移",
+        "婚姻",
+        "门阶遗体"
+      ],
       "summary": "身份和身体之间的关系被彻底撕开，家族秘密与印斯茅斯余影回到阿卡姆。",
-      "atlasNodes": ["阿卡姆", "身份", "印斯茅斯"],
-      "sourceRefs": ["hpl-archive"],
-      "textStatus": "metadata-only"
+      "atlasNodes": [
+        "阿卡姆",
+        "身份",
+        "印斯茅斯"
+      ],
+      "sourceRefs": [
+        "hpl-archive",
+        "hpl-publish",
+        "hpl-texts"
+      ],
+      "textStatus": "metadata-only",
+      "publication": {
+        "firstPublished": "1937, January",
+        "publicationYear": 1937,
+        "venue": "Weird Tales",
+        "issue": "29, No. 1",
+        "type": "periodical",
+        "source": "The H. P. Lovecraft Archive publication order"
+      },
+      "links": {
+        "hplText": "https://www.hplovecraft.com/writings/texts/fiction/td.aspx",
+        "hplPublication": "https://www.hplovecraft.com/writings/fiction/td.aspx"
+      },
+      "fullTextLinks": [
+        {
+          "label": "H. P. Lovecraft Archive",
+          "url": "https://www.hplovecraft.com/writings/texts/fiction/td.aspx",
+          "language": "en"
+        }
+      ],
+      "titleAliases": {
+        "zh": [
+          "门阶上的东西",
+          "门口的怪物"
+        ],
+        "en": [
+          "The Thing on the Doorstep"
+        ]
+      },
+      "collaborators": [],
+      "relationships": [
+        {
+          "target": "herbert-west-reanimator",
+          "type": "cosmic-science",
+          "label": "身体与意识可被技术化处理",
+          "direction": "in"
+        },
+        {
+          "target": "the-dreams-in-the-witch-house",
+          "type": "miskatonic",
+          "label": "阿卡姆周边的身份侵入",
+          "direction": "out"
+        }
+      ]
     },
     {
       "id": "the-shadow-out-of-time",
@@ -561,13 +2587,81 @@
       "titleEn": "The Shadow Out of Time",
       "author": "H. P. Lovecraft",
       "era": "late",
-      "themes": ["时间", "记忆", "伊斯伟大种族"],
-      "locations": ["澳大利亚沙漠", "远古图书馆"],
-      "motifs": ["失忆", "精神交换", "石质档案库"],
+      "themes": [
+        "时间",
+        "记忆",
+        "伊斯伟大种族"
+      ],
+      "locations": [
+        "澳大利亚沙漠",
+        "远古图书馆"
+      ],
+      "motifs": [
+        "失忆",
+        "精神交换",
+        "石质档案库"
+      ],
       "summary": "个体记忆被放入跨时代的种族档案，时间不再是线性背景，而是可以被占用和整理的图书馆。",
-      "atlasNodes": ["伊斯", "时间", "档案"],
-      "sourceRefs": ["hpl-archive"],
-      "textStatus": "metadata-only"
+      "atlasNodes": [
+        "伊斯",
+        "时间",
+        "档案"
+      ],
+      "sourceRefs": [
+        "hpl-archive",
+        "hpl-publish",
+        "hpl-texts"
+      ],
+      "textStatus": "metadata-only",
+      "publication": {
+        "firstPublished": "1936, June",
+        "publicationYear": 1936,
+        "venue": "Astounding Stories",
+        "issue": "17, No. 4",
+        "type": "periodical",
+        "source": "The H. P. Lovecraft Archive publication order"
+      },
+      "links": {
+        "hplText": "https://www.hplovecraft.com/writings/texts/fiction/sot.aspx",
+        "hplPublication": "https://www.hplovecraft.com/writings/fiction/sot.aspx"
+      },
+      "fullTextLinks": [
+        {
+          "label": "H. P. Lovecraft Archive",
+          "url": "https://www.hplovecraft.com/writings/texts/fiction/sot.aspx",
+          "language": "en"
+        }
+      ],
+      "titleAliases": {
+        "zh": [
+          "超越时间之影",
+          "时间之外的阴影"
+        ],
+        "en": [
+          "The Shadow Out of Time"
+        ]
+      },
+      "collaborators": [],
+      "relationships": [
+        {
+          "target": "the-whisperer-in-darkness",
+          "type": "cosmic-science",
+          "label": "意识、记录与外星文明",
+          "direction": "in"
+        },
+        {
+          "target": "at-the-mountains-of-madness",
+          "type": "ancient-city",
+          "label": "深时文明与史前档案",
+          "direction": "in"
+        },
+        {
+          "target": "the-dreams-in-the-witch-house",
+          "type": "cosmic-science",
+          "label": "数学、梦境和意识转移",
+          "direction": "in"
+        }
+      ]
     },
     {
       "id": "the-haunter-of-the-dark",
@@ -577,13 +2671,316 @@
       "titleEn": "The Haunter of the Dark",
       "author": "H. P. Lovecraft",
       "era": "late",
-      "themes": ["教堂", "黑暗", "星石"],
-      "locations": ["普罗维登斯", "联邦山"],
-      "motifs": ["闪耀三棱体", "废弃教堂", "最后日记"],
+      "themes": [
+        "教堂",
+        "黑暗",
+        "星石"
+      ],
+      "locations": [
+        "普罗维登斯",
+        "联邦山"
+      ],
+      "motifs": [
+        "闪耀三棱体",
+        "废弃教堂",
+        "最后日记"
+      ],
       "summary": "废弃教堂、神秘星石和最后日记构成晚期的回声，光与黑暗成为最直接的生存边界。",
-      "atlasNodes": ["普罗维登斯", "星石", "黑暗"],
-      "sourceRefs": ["hpl-archive"],
-      "textStatus": "metadata-only"
+      "atlasNodes": [
+        "普罗维登斯",
+        "星石",
+        "黑暗"
+      ],
+      "sourceRefs": [
+        "hpl-archive",
+        "hpl-publish",
+        "hpl-texts"
+      ],
+      "textStatus": "metadata-only",
+      "publication": {
+        "firstPublished": "1936, December",
+        "publicationYear": 1936,
+        "venue": "Weird Tales",
+        "issue": "28, No. 5",
+        "type": "periodical",
+        "source": "The H. P. Lovecraft Archive publication order"
+      },
+      "links": {
+        "hplText": "https://www.hplovecraft.com/writings/texts/fiction/hd.aspx",
+        "hplPublication": "https://www.hplovecraft.com/writings/fiction/hd.aspx"
+      },
+      "fullTextLinks": [
+        {
+          "label": "H. P. Lovecraft Archive",
+          "url": "https://www.hplovecraft.com/writings/texts/fiction/hd.aspx",
+          "language": "en"
+        }
+      ],
+      "titleAliases": {
+        "zh": [
+          "黑暗中的猎手",
+          "暗夜幽灵"
+        ],
+        "en": [
+          "The Haunter of the Dark"
+        ]
+      },
+      "collaborators": [],
+      "relationships": [
+        {
+          "target": "the-call-of-cthulhu",
+          "type": "forbidden-book",
+          "label": "城市调查中的旧日神秘物",
+          "direction": "out"
+        },
+        {
+          "target": "pickmans-model",
+          "type": "publication",
+          "label": "Weird Tales 后期视觉恐怖链",
+          "direction": "in"
+        }
+      ]
     }
-  ]
+  ],
+  "network": {
+    "relationTypes": {
+      "dream-cycle": {
+        "label": "梦境循环",
+        "color": "jade"
+      },
+      "deep-sea": {
+        "label": "深海神话",
+        "color": "teal"
+      },
+      "forbidden-book": {
+        "label": "禁书与档案",
+        "color": "brass"
+      },
+      "ancient-city": {
+        "label": "远古城市",
+        "color": "amber"
+      },
+      "miskatonic": {
+        "label": "米斯卡塔尼克线索",
+        "color": "blue"
+      },
+      "lineage": {
+        "label": "血统与身份",
+        "color": "red"
+      },
+      "cosmic-science": {
+        "label": "科学与宇宙深时",
+        "color": "violet"
+      },
+      "collaboration": {
+        "label": "合作与署名",
+        "color": "paper"
+      },
+      "publication": {
+        "label": "期刊发表脉络",
+        "color": "green"
+      }
+    },
+    "edges": [
+      {
+        "source": "the-tomb",
+        "target": "the-statement-of-randolph-carter",
+        "type": "lineage",
+        "label": "墓穴叙事与身份失稳"
+      },
+      {
+        "source": "dagon",
+        "target": "the-call-of-cthulhu",
+        "type": "deep-sea",
+        "label": "深海证词通向旧日支配者"
+      },
+      {
+        "source": "dagon",
+        "target": "the-shadow-over-innsmouth",
+        "type": "deep-sea",
+        "label": "达贡崇拜与海岸共同体"
+      },
+      {
+        "source": "polaris",
+        "target": "the-dream-quest-of-unknown-kadath",
+        "type": "dream-cycle",
+        "label": "梦境地理的早期坐标"
+      },
+      {
+        "source": "the-white-ship",
+        "target": "the-dream-quest-of-unknown-kadath",
+        "type": "dream-cycle",
+        "label": "梦境航海扩展为完整国度"
+      },
+      {
+        "source": "the-doom-that-came-to-sarnath",
+        "target": "the-cats-of-ulthar",
+        "type": "dream-cycle",
+        "label": "梦境城镇与寓言法则"
+      },
+      {
+        "source": "celephais",
+        "target": "the-dream-quest-of-unknown-kadath",
+        "type": "dream-cycle",
+        "label": "梦境城市与卡达斯远行"
+      },
+      {
+        "source": "the-nameless-city",
+        "target": "at-the-mountains-of-madness",
+        "type": "ancient-city",
+        "label": "非人城市与深时建筑"
+      },
+      {
+        "source": "the-nameless-city",
+        "target": "the-call-of-cthulhu",
+        "type": "ancient-city",
+        "label": "人类之前的文明痕迹"
+      },
+      {
+        "source": "the-outsider",
+        "target": "pickmans-model",
+        "type": "lineage",
+        "label": "自我认知转向怪物凝视"
+      },
+      {
+        "source": "the-music-of-erich-zann",
+        "target": "the-colour-out-of-space",
+        "type": "cosmic-science",
+        "label": "感官异常成为宇宙入侵证据"
+      },
+      {
+        "source": "herbert-west-reanimator",
+        "target": "the-thing-on-the-doorstep",
+        "type": "cosmic-science",
+        "label": "身体与意识可被技术化处理"
+      },
+      {
+        "source": "the-hound",
+        "target": "the-festival",
+        "type": "forbidden-book",
+        "label": "禁书收藏与地下仪式"
+      },
+      {
+        "source": "the-festival",
+        "target": "the-shadow-over-innsmouth",
+        "type": "lineage",
+        "label": "海岸宗族与非人血统"
+      },
+      {
+        "source": "under-the-pyramids",
+        "target": "the-nameless-city",
+        "type": "ancient-city",
+        "label": "地下遗迹与古代尺度"
+      },
+      {
+        "source": "under-the-pyramids",
+        "target": "through-the-gates-of-the-silver-key",
+        "type": "collaboration",
+        "label": "特殊署名与合作文本"
+      },
+      {
+        "source": "the-shunned-house",
+        "target": "the-dunwich-horror",
+        "type": "lineage",
+        "label": "新英格兰家宅中的遗传恐惧"
+      },
+      {
+        "source": "the-horror-at-red-hook",
+        "target": "the-call-of-cthulhu",
+        "type": "forbidden-book",
+        "label": "都市档案与集体证词"
+      },
+      {
+        "source": "the-call-of-cthulhu",
+        "target": "the-dunwich-horror",
+        "type": "forbidden-book",
+        "label": "禁书、仪式和旧神姓名"
+      },
+      {
+        "source": "the-silver-key",
+        "target": "through-the-gates-of-the-silver-key",
+        "type": "dream-cycle",
+        "label": "银钥匙叙事的直接续篇"
+      },
+      {
+        "source": "the-dream-quest-of-unknown-kadath",
+        "target": "the-silver-key",
+        "type": "dream-cycle",
+        "label": "伦道夫·卡特的梦境谱系"
+      },
+      {
+        "source": "the-colour-out-of-space",
+        "target": "the-dunwich-horror",
+        "type": "cosmic-science",
+        "label": "乡野空间中的非人力量"
+      },
+      {
+        "source": "the-colour-out-of-space",
+        "target": "the-whisperer-in-darkness",
+        "type": "cosmic-science",
+        "label": "乡村调查转向星际证据"
+      },
+      {
+        "source": "the-whisperer-in-darkness",
+        "target": "at-the-mountains-of-madness",
+        "type": "cosmic-science",
+        "label": "非人文明从传闻变成考察"
+      },
+      {
+        "source": "the-whisperer-in-darkness",
+        "target": "the-shadow-out-of-time",
+        "type": "cosmic-science",
+        "label": "意识、记录与外星文明"
+      },
+      {
+        "source": "at-the-mountains-of-madness",
+        "target": "the-shadow-out-of-time",
+        "type": "ancient-city",
+        "label": "深时文明与史前档案"
+      },
+      {
+        "source": "the-dreams-in-the-witch-house",
+        "target": "the-dunwich-horror",
+        "type": "miskatonic",
+        "label": "阿卡姆学术圈与仪式数学"
+      },
+      {
+        "source": "the-dreams-in-the-witch-house",
+        "target": "the-shadow-out-of-time",
+        "type": "cosmic-science",
+        "label": "数学、梦境和意识转移"
+      },
+      {
+        "source": "the-thing-on-the-doorstep",
+        "target": "the-dreams-in-the-witch-house",
+        "type": "miskatonic",
+        "label": "阿卡姆周边的身份侵入"
+      },
+      {
+        "source": "the-haunter-of-the-dark",
+        "target": "the-call-of-cthulhu",
+        "type": "forbidden-book",
+        "label": "城市调查中的旧日神秘物"
+      },
+      {
+        "source": "the-temple",
+        "target": "at-the-mountains-of-madness",
+        "type": "ancient-city",
+        "label": "非人遗迹由海底延伸至南极"
+      },
+      {
+        "source": "the-lurking-fear",
+        "target": "the-shunned-house",
+        "type": "lineage",
+        "label": "家族退化与房屋档案"
+      },
+      {
+        "source": "pickmans-model",
+        "target": "the-haunter-of-the-dark",
+        "type": "publication",
+        "label": "Weird Tales 后期视觉恐怖链"
+      }
+    ],
+    "note": "Curated first-degree network for literary motifs, publication channels and collaboration/credit context."
+  }
 }
